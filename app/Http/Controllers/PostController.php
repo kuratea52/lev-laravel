@@ -19,10 +19,8 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        //Viewを返却するときは、return文の指定をview('Bladeファイル名の「.blade.php」より前の部分')と記載する。
-        //（BladeファイルがViewsフォルダの直下にない場合は、Views以降の相対パスを記載）
-        return view('posts.index')->with(['posts' => $post->getByLimit()]);  
-        //blade内で使う変数'posts'と設定。'posts'の中身にgetを使い、インスタンス化した$postを代入。
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
+    // getPaginateByLimit()はPost.phpで定義したメソッド。
     }
 }
 ?>
