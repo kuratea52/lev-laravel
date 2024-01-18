@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <a href='/posts/create'>create</a>
         <div class='posts'>
             <!-- $postsに含まれる値を反復処理 -->
             @foreach ($posts as $post)
