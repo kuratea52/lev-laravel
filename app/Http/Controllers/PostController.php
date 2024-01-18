@@ -26,7 +26,7 @@ class PostController extends Controller
     {
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/posts/' . $post->id);   // このURLはつまりshow.blade.phpと同じページを表示している
     }
 }
 ?>

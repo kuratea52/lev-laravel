@@ -14,7 +14,7 @@ Route::get('/posts', [
 
 Route::post('/posts', [
     PostController::class,
-    'store'
+    'store'  // createで入力内容を投稿して再び/postsに戻るときにPOSTリクエストが実行される
 ]);
 
 Route::get('/posts/create', [
