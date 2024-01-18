@@ -12,6 +12,11 @@ Route::get('/posts', [
     'index'
 ]);
 
+Route::post('/posts', [
+    PostController::class,
+    'store'
+]);
+
 Route::get('/posts/create', [
     PostController::class,
     'create'
