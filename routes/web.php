@@ -12,18 +12,28 @@ Route::get('/posts', [
     'index'
 ]);
 
-Route::post('/posts', [
-    PostController::class,
-    'store'  // createで入力内容を投稿して再び/postsに戻るときにPOSTリクエストが実行される
-]);
-
 Route::get('/posts/create', [
     PostController::class,
     'create'
+]);
+
+Route::post('/posts', [
+    PostController::class,
+    'store'  // createで入力内容を投稿して再び/postsに戻るときにPOSTリクエストが実行される
 ]);
 
 // '/posts/{対象データのID}'にGetリクエストが来たら、PostController.phpのshowメソッドを実行する。
 Route::get('/posts/{post}', [
     PostController::class,
     'show'
+]);
+
+Route::put('/posts/{post}', [
+    PostController::class,
+    'update'
+]);
+
+Route::get('/posts/{post}/edit', [
+    PostController::class,
+    'edit'
 ]);
