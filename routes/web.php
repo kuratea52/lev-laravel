@@ -17,9 +17,10 @@ Route::get('/posts/create', [
     'create'
 ]);
 
+// '/posts'にPostリクエストが来たら、PostController.phpのstoreメソッドを実行する。
 Route::post('/posts', [
     PostController::class,
-    'store'  // createで入力内容を投稿して再び/postsに戻るときにPOSTリクエストが実行される
+    'store'
 ]);
 
 // '/posts/{対象データのID}'にGetリクエストが来たら、PostController.phpのshowメソッドを実行する。
@@ -31,6 +32,12 @@ Route::get('/posts/{post}', [
 Route::put('/posts/{post}', [
     PostController::class,
     'update'
+]);
+
+// '/posts/{対象データのID}'にDeleteリクエストが来たら、PostController.phpのdeleteメソッドを実行する。
+Route::delete('/posts/{post}', [
+    PostController::class,
+    'delete'
 ]);
 
 Route::get('/posts/{post}/edit', [
