@@ -13,11 +13,17 @@ class Post extends Model
     
     protected $fillable = [
         'title',
-        'body'
+        'body',
+        'category_id'
     ];
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    public function category()   // categoryを単数形にすることで、関連する１つのデータを取得するという意味。
+    {
+        return $this->belongsTo(Category::class);   // postsテーブル→categoriesテーブル：多対１の関係、belongsToメソッドを使う。
     }
 }
