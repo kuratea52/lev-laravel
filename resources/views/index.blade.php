@@ -26,10 +26,10 @@
         </div>
         @endforeach
     </div>
-    <a href="/">戻る</a>
     <div class='paginate'>
         {{ $posts->links() }}
     </div>
+    <p class='user'>ログインユーザー：{{ Auth::user()->name }}</p>
     <script>
     function deletePost(id) {
         'use strict'
