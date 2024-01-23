@@ -22,12 +22,14 @@
                 @method('DELETE')
                 <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
             </form>
+            <br>
         </div>
         @endforeach
     </div>
     <div class='paginate'>
         {{ $posts->links() }}
     </div>
+    <p class='user'>ログインユーザー：{{ Auth::user()->name }}</p>
     <script>
     function deletePost(id) {
         'use strict'
