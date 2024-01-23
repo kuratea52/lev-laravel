@@ -25,7 +25,7 @@
         </div>
         @endforeach
     </div>
-    <a href="/posts">戻る</a>
+    <a href="/">戻る</a>
     <div class='paginate'>
         {{ $posts->links() }}
     </div>
