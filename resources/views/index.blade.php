@@ -6,6 +6,16 @@
     </x-slot>
     
     <h1>Blog Name</h1>
+    <!--teratailの質問一覧とリンク表示-->
+    <!--<div>-->
+    <!--    @foreach($questions as $question)-->
+    <!--        <div>-->
+    <!--            <a href="https://teratail.com/questions/{{ $question['id'] }}">-->
+    <!--                {{ $question['title'] }}-->
+    <!--            </a>-->
+    <!--        </div>-->
+    <!--    @endforeach-->
+    <!--</div>-->
     <a href='/posts/create'>[create]</a>
     <div class='posts'>
         <!-- $postsに含まれる値を反復処理 -->
