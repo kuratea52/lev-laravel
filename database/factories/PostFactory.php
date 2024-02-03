@@ -31,7 +31,7 @@ class PostFactory extends Factory
             'stay_duration' => $this->faker->numberBetween(1, 14),
             'transportation' => $this->faker->word,
             'title' => $this->faker->sentence(5),
-            'content' => $this->faker->text(10000),
+            'content' => $this->faker->text(100),
             'is_public' => $this->faker->boolean(true),
             'likes' => $this->faker->numberBetween(0, 100),
             'created_at' => now(),
