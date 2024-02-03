@@ -10,7 +10,8 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('index')->with(['posts' => $post->getByLimit()]);
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
+        return view('index', compact('posts'));
     }
     
     public function show(Post $post)
