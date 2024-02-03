@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('budget');
             $table->integer('stay_duration');
             $table->string('transportation');
-            $table->string('title', 50);
+            $table->string('title', 255);
             $table->text('content', 10000);
             $table->boolean('is_public')->default(true);
             $table->integer('likes')->default(0);
