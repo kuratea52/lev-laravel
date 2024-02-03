@@ -6,6 +6,12 @@
     </x-slot>
     
     <h1>Blog Name</h1>
+    <h2>Tokyo Region Ranking</h2>
+    <ul>
+        @foreach($tokyoRanking as $post)
+            <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
+        @endforeach
+    </ul>
     <a href='/posts/create'>[create]</a>
     <div class='posts'>
         <!-- $postsに含まれる値を反復処理 -->
