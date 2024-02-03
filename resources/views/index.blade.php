@@ -26,7 +26,8 @@
         @endforeach
     </div>
     <div class='paginate'>
-        {{ $posts->links() }}
+        <!--{{ $posts->links() }}-->
+        {{ $posts->appends(request()->query())->links() }}
     </div>
     <p class='user'>ログインユーザー：{{ Auth::user()->name }}</p>
     <script>

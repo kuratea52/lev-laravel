@@ -17,8 +17,8 @@ class Post extends Model
         'category_id'
     ];
     
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function getByLimit(int $limit_count = 10)
     {
-        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
 }
