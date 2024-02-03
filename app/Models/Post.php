@@ -17,13 +17,8 @@ class Post extends Model
         'category_id'
     ];
     
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function getByLimit(int $limit_count = 10)
     {
-        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
-    }
-    
-    public function category()   // categoryを単数形にすることで、関連する１つのデータを取得するという意味。
-    {
-        return $this->belongsTo(Category::class);   // postsテーブル→categoriesテーブル：多対１の関係、belongsToメソッドを使う。
+        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
 }
