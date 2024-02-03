@@ -1,0 +1,30 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.text-blue-500 {
+    color: #3490dc;
+}
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.bg-blue-100 {
+    background-color: #ebf4ff;
+}
+
+.bg-red-500 {
+    background-color: #ef4444;
+}
+
+.text-white {
+    color: #fff;
+}
