@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('region');
+            $table->enum('region', ['tokyo', 'kyoto']);
             $table->string('season');
             $table->integer('participants');
             $table->string('budget');

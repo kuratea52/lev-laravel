@@ -12,13 +12,27 @@ class Post extends Model
     use SoftDeletes;
     
     protected $fillable = [
+        'region',
+        'season',
+        'participants',
+        'budget',
+        'stay_duration',
+        'transportation',
         'title',
-        'body',
-        'category_id'
+        'content',
+        'is_public'
     ];
+    
+    public static function getRankingByRegion($region, $limit = 10)
+    {
+        return self::where('region', $region)
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
     
     public function getByLimit(int $limit_count = 10)
     {
-        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
