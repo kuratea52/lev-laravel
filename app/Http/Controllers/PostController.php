@@ -11,8 +11,9 @@ class PostController extends Controller
     public function index(Post $post)
     {
         // $posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
-        // return view('index', compact('posts'));
         $tokyoRanking = Post::getRankingByRegion('tokyo');
+        $posts = $post->getByLimit();
+        return view('index', compact('tokyoRanking', 'posts'));
     }
     
     public function show(Post $post)

@@ -5,26 +5,19 @@ namespace Database\Factories;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 class PostFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
     protected $model = Post::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition()
     {
+        $regions = ['tokyo', 'kyoto'];
+        
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
-            'region' => $this->faker->word,
+            'region' => $this->faker->randomElement($regions),
             'season' => $this->faker->word,
             'participants' => $this->faker->numberBetween(1, 10),
             'budget' => $this->faker->randomElement(['～１万円', '～３万円', '～５万円', '～１０万円', '１０万円～']),
