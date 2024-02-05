@@ -10,10 +10,10 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        // $posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
         $kantoRanking = Post::getRankingByRegion('関東');
+        $springRanking = Post::getRankingBySeason('春');
         $posts = $post->getByLimit();
-        return view('index', compact('kantoRanking', 'posts'));
+        return view('index', compact('kantoRanking', 'springRanking', 'posts'));
     }
     
     public function show(Post $post)

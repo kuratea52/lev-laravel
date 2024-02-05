@@ -31,6 +31,14 @@ class Post extends Model
             ->get();
     }
     
+    public static function getRankingBySeason($season, $limit = 10)
+    {
+        return self::where('season', $season)
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+    
     public function getByLimit(int $limit_count = 10)
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
