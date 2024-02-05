@@ -6,7 +6,7 @@
     </x-slot>
     
     <head>
-        <link rel="stylesheet" href="{{ asset('~/blog/resources/css/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('../css/index.css') }}">
     </head>
 
     <div class="container mx-auto my-8">
