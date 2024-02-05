@@ -11,9 +11,9 @@
     </head>
 
     <div class="container mx-auto my-8">
-        <h2 class="text-2xl font-semibold mb-2 text-blue-500">Tokyo Region Ranking</h2>
+        <h2 class="text-2xl font-semibold mb-2 text-blue-500">関東地方ランキング</h2>
         <ul class="list-disc pl-6">
-            @foreach($tokyoRanking as $post)
+            @foreach($kantoRanking as $post)
                 <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
             @endforeach
         </ul>
