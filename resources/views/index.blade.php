@@ -58,25 +58,25 @@
             @endforeach
         </ul>
 
-        <div class='posts mt-8'>
-            @foreach ($posts as $post)
-                <div class='post border rounded p-4 mb-4 bg-blue-100'>
-                    <h2 class='text-2xl font-semibold mb-2'>
-                        <a href="/posts/{{ $post->id }}" class="text-blue-500 hover:underline">{{ $post->title }}</a>
-                    </h2>
-                    <p class='text-gray-700'>{{ $post->body }}</p>
-                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" class="mt-2">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $post->id }})" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
-                    </form>
-                </div>
-            @endforeach
-        </div>
+        <!--<div class='posts mt-8'>-->
+        <!--    @foreach ($posts as $post)-->
+        <!--        <div class='post border rounded p-4 mb-4 bg-blue-100'>-->
+        <!--            <h2 class='text-2xl font-semibold mb-2'>-->
+        <!--                <a href="/posts/{{ $post->id }}" class="text-blue-500 hover:underline">{{ $post->title }}</a>-->
+        <!--            </h2>-->
+        <!--            <p class='text-gray-700'>{{ $post->body }}</p>-->
+        <!--            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" class="mt-2">-->
+        <!--                @csrf-->
+        <!--                @method('DELETE')-->
+        <!--                <button type="button" onclick="deletePost({{ $post->id }})" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>-->
+        <!--            </form>-->
+        <!--        </div>-->
+        <!--    @endforeach-->
+        <!--</div>-->
 
-        <div class='paginate mt-8'>
-            {{ $posts->links() }}
-        </div>
+        <!--<div class='paginate mt-8'>-->
+        <!--    {{ $posts->links() }}-->
+        <!--</div>-->
 
         <p class='user mt-4'>Logged in as: {{ Auth::user()->name }}</p>
     </div>
