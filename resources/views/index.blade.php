@@ -10,6 +10,14 @@
     </head>
 
     <div class="container mx-auto my-8">
+        <!-- 総合ランキング -->
+        <h2 class="text-2xl font-semibold mb-2 text-yellow-500">総合ランキング</h2>
+        <ul class="list-disc pl-6">
+            @foreach($totalLikesRanking as $post)
+                <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
+            @endforeach
+        </ul>
+        
         <!-- 関東地方のランキング -->
         <h2 class="text-2xl font-semibold mb-2 text-blue-500">関東地方のランキング</h2>
         <ul class="list-disc pl-6">
@@ -22,6 +30,30 @@
         <h2 class="text-2xl font-semibold mb-2 text-green-500">春のランキング</h2>
         <ul class="list-disc pl-6">
             @foreach($springRanking as $post)
+                <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
+            @endforeach
+        </ul>
+        
+        <!-- ひとり旅の数ランキング -->
+        <h2 class="text-2xl font-semibold mb-2 text-purple-500">ひとり旅のランキング</h2>
+        <ul class="list-disc pl-6">
+            @foreach($oneParticipantLikesRanking as $post)
+                <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
+            @endforeach
+        </ul>
+        
+        <!-- 予算３万円以内のランキング -->
+        <h2 class="text-2xl font-semibold mb-2 text-red-500">予算３万円以内のランキング</h2>
+        <ul class="list-disc pl-6">
+            @foreach($budgetLikesRanking as $post)
+                <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
+            @endforeach
+        </ul>
+        
+        <!-- 日帰り旅のランキング -->
+        <h2 class="text-2xl font-semibold mb-2 text-indigo-500">日帰り旅のランキング</h2>
+        <ul class="list-disc pl-6">
+            @foreach($dayTripLikesRanking as $post)
                 <li>{{ $post->title }} - Likes: {{ $post->likes }}</li>
             @endforeach
         </ul>
