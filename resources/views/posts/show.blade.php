@@ -6,9 +6,9 @@
     </x-slot>
     
     <div class="container mx-auto my-8">
-        <div class="post-details">
-            <h1 class="title">{{ $post->title }}</h1>
-            <div class="details">
+        <div class="post-details bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h1 class="title text-3xl mb-4 font-semibold">{{ $post->title }}</h1>
+            <div class="details grid grid-cols-2 gap-4 mb-4">
                 <p><strong>地域:</strong> {{ $post->region }}</p>
                 <p><strong>季節:</strong> {{ $post->season }}</p>
                 <p><strong>参加者数:</strong> {{ $post->participants }}</p>
@@ -20,14 +20,14 @@
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
             </div>
             <div class="content">
-                <div class="content__post">
-                    <h3>本文</h3>
-                    <p>{{ $post->content }}</p>
+                <div class="content__post mb-4">
+                    <h3 class="text-xl font-semibold mb-2">本文</h3>
+                    <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
+        <div class="footer text-center mt-4">
+            <a href="/" class="text-blue-500 hover:underline">戻る</a>
         </div>
     </div>
 </x-app-layout>
