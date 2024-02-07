@@ -15,7 +15,6 @@
             <p>{{ $post->body }}</p>    
         </div>
     </div>
-    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
     <div class="footer">
         <a href="/">戻る</a>
     </div>

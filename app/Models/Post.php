@@ -23,7 +23,14 @@ class Post extends Model
         'is_public'
     ];
     
-    public static function getRankingByRegion($region, $limit = 10)
+    public static function getTotalLikesRanking($limit = 3)
+    {
+        return self::orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+    
+    public static function getRankingByRegion($region, $limit = 3)
     {
         return self::where('region', $region)
             ->orderByDesc('likes')
@@ -31,9 +38,33 @@ class Post extends Model
             ->get();
     }
     
-    public static function getRankingBySeason($season, $limit = 10)
+    public static function getRankingBySeason($season, $limit = 3)
     {
         return self::where('season', $season)
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+    
+    public static function getLikesRankingByParticipants($participants, $limit = 3)
+    {
+        return self::where('participants', $participants)
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+    
+    public static function getLikesRankingByBudget($budget, $limit = 3)
+    {
+        return self::where('budget', $budget)
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+    
+    public static function getLikesRankingByStayDuration($stayDuration, $limit = 3)
+    {
+        return self::where('stay_duration', $stayDuration)
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();

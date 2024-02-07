@@ -19,7 +19,7 @@ class PostFactory extends Factory
             'season' => $this->faker->randomElement(['春', '夏', '秋', '冬']),
             'participants' => $this->faker->randomElement(['１人', '２人', '３～５人', '６人～']),
             'budget' => $this->faker->randomElement(['～１万円', '～３万円', '～５万円', '～１０万円', '１０万円～']),
-            'stay_duration' => $this->faker->randomElement(['１泊', '２泊', '３泊', '４泊～']),
+            'stay_duration' => $this->faker->randomElement(['日帰り', '１泊', '２泊', '３泊', '４泊～']),
             'title' => $this->faker->sentence(5),
             'content' => $this->faker->text(100),
             'is_public' => $this->faker->boolean(true),

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->enum('season', ['春', '夏', '秋', '冬']);
             $table->enum('participants', ['１人', '２人', '３～５人', '６人～']);
             $table->enum('budget', ['～１万円', '～３万円', '～５万円', '～１０万円', '１０万円～']);
-            $table->enum('stay_duration', ['１泊', '２泊', '３泊', '４泊～']);
+            $table->enum('stay_duration', ['日帰り', '１泊', '２泊', '３泊', '４泊～']);
             $table->string('title', 255);
             $table->text('content', 10000);
             $table->boolean('is_public')->default(true);
