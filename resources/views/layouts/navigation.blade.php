@@ -22,7 +22,7 @@
                         {{ __('旅日記を投稿する') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')">
-                        {{ __('お問い合わせ') }}
+                        {{ __('FAQ & お問い合わせ') }}
                     </x-nav-link>
                 </div>
             </div>
