@@ -31,7 +31,7 @@
 
             <!-- Participants -->
             <div class="mt-4">
-                <label for="participants" class="block font-medium text-gray-700">参加人数</label>
+                <label for="participants" class="block font-medium text-gray-700">人数</label>
                 <select name="participants" id="participants" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     @foreach(['１人', '２人', '３～５人', '６人～'] as $participants)
                         <option value="{{ $participants }}">{{ $participants }}</option>
