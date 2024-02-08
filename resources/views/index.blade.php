@@ -105,10 +105,9 @@
         <!--</div>-->
 
         <!--<div class='paginate mt-8'>-->
-        <!--    {{ $posts->links() }}-->
+        <!--    {{-- $posts->links() --}}-->
         <!--</div>-->
 
-        <p class='user mt-4'>Logged in as: {{ Auth::user()->name }}</p>
     </div>
 
     <script>
