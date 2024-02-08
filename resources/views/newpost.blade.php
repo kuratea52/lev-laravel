@@ -13,15 +13,9 @@
             <div class="mt-4">
                 <label for="region" :value="__('地域')" />
                 <select name="region" id="region" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="北海道">北海道</option>
-                    <option value="東北">東北</option>
-                    <option value="関東">関東</option>
-                    <option value="中部">中部</option>
-                    <option value="近畿">近畿</option>
-                    <option value="中国">中国</option>
-                    <option value="四国">四国</option>
-                    <option value="九州">九州</option>
-                    <option value="沖縄">沖縄</option>
+                    @foreach(['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州', '沖縄'] as $region)
+                        <option value="{{ $region }}">{{ $region }}</option>
+                    @endforeach
                 </select>
             </div>
 
