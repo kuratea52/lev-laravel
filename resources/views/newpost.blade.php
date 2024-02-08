@@ -23,10 +23,9 @@
             <div class="mt-4">
                 <label for="season" :value="__('季節')" />
                 <select name="season" id="season" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="春">春</option>
-                    <option value="夏">夏</option>
-                    <option value="秋">秋</option>
-                    <option value="冬">冬</option>
+                    @foreach(['春', '夏', '秋', '冬'] as $season)
+                        <option value="{{ $season }}">{{ $season }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -34,10 +33,9 @@
             <div class="mt-4">
                 <label for="participants" :value="__('参加人数')" />
                 <select name="participants" id="participants" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="１人">１人</option>
-                    <option value="２人">２人</option>
-                    <option value="３～５人">３～５人</option>
-                    <option value="６人～">６人～</option>
+                    @foreach(['１人', '２人', '３～５人', '６人～'] as $participants)
+                        <option value="{{ $participants }}">{{ $participants }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -45,11 +43,9 @@
             <div class="mt-4">
                 <label for="budget" :value="__('予算')" />
                 <select name="budget" id="budget" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="～１万円">～１万円</option>
-                    <option value="～３万円">～３万円</option>
-                    <option value="～５万円">～５万円</option>
-                    <option value="～１０万円">～１０万円</option>
-                    <option value="１０万円～">１０万円～</option>
+                    @foreach(['～１万円', '～３万円', '～５万円', '～１０万円', '１０万円～'] as $budget)
+                        <option value="{{ $budget }}">{{ $budget }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -57,11 +53,9 @@
             <div class="mt-4">
                 <label for="stay_duration" :value="__('滞在期間')" />
                 <select name="stay_duration" id="stay_duration" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="日帰り">日帰り</option>
-                    <option value="１泊">１泊</option>
-                    <option value="２泊">２泊</option>
-                    <option value="３泊">３泊</option>
-                    <option value="４泊～">４泊～</option>
+                    @foreach(['日帰り', '１泊', '２泊', '３泊', '４泊～'] as $stay_duration)
+                        <option value="{{ $stay_duration }}">{{ $stay_duration }}</option>
+                    @endforeach
                 </select>
             </div>
 
