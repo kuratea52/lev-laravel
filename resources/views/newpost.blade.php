@@ -11,7 +11,7 @@
 
             <!-- Region -->
             <div class="mt-4">
-                <x-label for="region" :value="__('地域')" />
+                <label for="region" :value="__('地域')" />
                 <select name="region" id="region" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="北海道">北海道</option>
                     <option value="東北">東北</option>
@@ -27,7 +27,7 @@
 
             <!-- Season -->
             <div class="mt-4">
-                <x-label for="season" :value="__('季節')" />
+                <label for="season" :value="__('季節')" />
                 <select name="season" id="season" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="春">春</option>
                     <option value="夏">夏</option>
@@ -38,7 +38,7 @@
 
             <!-- Participants -->
             <div class="mt-4">
-                <x-label for="participants" :value="__('参加人数')" />
+                <label for="participants" :value="__('参加人数')" />
                 <select name="participants" id="participants" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="１人">１人</option>
                     <option value="２人">２人</option>
@@ -49,7 +49,7 @@
 
             <!-- Budget -->
             <div class="mt-4">
-                <x-label for="budget" :value="__('予算')" />
+                <label for="budget" :value="__('予算')" />
                 <select name="budget" id="budget" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="～１万円">～１万円</option>
                     <option value="～３万円">～３万円</option>
@@ -61,7 +61,7 @@
 
             <!-- Stay Duration -->
             <div class="mt-4">
-                <x-label for="stay_duration" :value="__('滞在期間')" />
+                <label for="stay_duration" :value="__('滞在期間')" />
                 <select name="stay_duration" id="stay_duration" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="日帰り">日帰り</option>
                     <option value="１泊">１泊</option>
@@ -73,20 +73,20 @@
 
             <!-- Title -->
             <div class="mt-4">
-                <x-label for="title" :value="__('タイトル')" />
-                <x-input id="title" class="block mt-1 w-full" type="text" name="title" required />
+                <label for="title" :value="__('タイトル')" />
+                <input id="title" class="block mt-1 w-full" type="text" name="title" required />
             </div>
 
             <!-- Content -->
             <div class="mt-4">
-                <x-label for="content" :value="__('内容')" />
+                <label for="content" :value="__('内容')" />
                 <textarea id="content" name="content" rows="5" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <button>
                     {{ __('投稿する') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </div>
