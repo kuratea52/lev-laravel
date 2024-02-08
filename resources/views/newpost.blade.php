@@ -8,6 +8,12 @@
     <div class="container mx-auto my-8">
         <form method="POST" action="{{ route('store') }}" class="max-w-2xl mx-auto">
             @csrf
+            
+            <!-- Title -->
+            <div class="mt-4">
+                <label for="title" class="block font-medium text-gray-700">タイトル</label>
+                <input id="title" class="block mt-1 w-full" type="text" name="title" required />
+            </div>
 
             <!-- Region -->
             <div class="mt-4">
@@ -58,13 +64,7 @@
                     @endforeach
                 </select>
             </div>
-
-            <!-- Title -->
-            <div class="mt-4">
-                <label for="title" class="block font-medium text-gray-700">タイトル</label>
-                <input id="title" class="block mt-1 w-full" type="text" name="title" required />
-            </div>
-
+            
             <!-- Content -->
             <div class="mt-4">
                 <label for="content" class="block font-medium text-gray-700">内容</label>
