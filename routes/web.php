@@ -26,7 +26,7 @@ Route::get('/newpost', function () {
 
 Route::get('/contactus', function () {
     return view('contactus');
-})->middleware(['auth', 'verified'])->name('contactus');
+})->name('contactus');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
