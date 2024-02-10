@@ -11,8 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1 class="text-2xl font-bold mb-4">{{ __("Welcome to the Dashboard") }}</h1>
                     <p class="text-lg">{{ __("You're logged in!") }}</p>
-                    <!-- サンプルリンク -->
-                    <a href="#" class="text-blue-500 hover:underline">{{ __("View Your Profile") }}</a>
+                    <!-- 自分の投稿を確認するリンク -->
+                    <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("View Your Posts") }}</a>
                 </div>
             </div>
         </div>
