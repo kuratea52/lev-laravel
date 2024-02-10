@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -33,12 +34,30 @@ class PostController extends Controller
         return view('posts.show')->with(['post' => $post]);
     }
     
-    public function store(Post $post, PostRequest $request)
+    public function store(Request $request)
     {
-        // $input = $request['post'];   // PostRequestクラスの処理をした$requestからキーがpostのものを$inputに代入
-        $validatedData = $request->validated();
-        $post->fill($input)->save();   // Postクラスのfillメソッドとsaveメソッドを呼び出している
-        return redirect('/posts/' . $post->id);   // このURLはつまりshow.blade.phpと同じページを表示している
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'region' => 'required|string',
+            'season' => 'required|string',
+            'participants' => 'required|string',
+            'budget' => 'required|string',
+            'stay_duration' => 'required|string',
+            'content' => 'required|string',
+        ]);
+        
+        $post = new Post();
+        $post->title = $validatedData['title'];
+        $post->region = $validatedData['region'];
+        $post->season = $validatedData['season'];
+        $post->participants = $validatedData['participants'];
+        $post->budget = $validatedData['budget'];
+        $post->stay_duration = $validatedData['stay_duration'];
+        $post->content = $validatedData['content'];
+        $post->user_id = auth()->id(); // 現在のログインユーザーのIDを保存
+        $post->save();
+        
+        return redirect()->route('posts.show', $post->id);
     }
     
     public function edit(Post $post)

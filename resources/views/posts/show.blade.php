@@ -25,6 +25,11 @@
                     <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
+            @if(auth()->id() === $post->user_id)
+                <div class="text-center mt-4">
+                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
+                </div>
+            @endif
         </div>
         <div class="footer text-center mt-4">
             <a href="/" class="text-blue-500 hover:underline">戻る</a>
