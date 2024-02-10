@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use App\Models\Post;
 
 class DashboardController extends Controller
@@ -8,7 +11,6 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
         $posts = Post::where('user_id', $user->id)->get();
-        return view('dashboard.posts', compact('posts'));
+        return view('dashboard.myposts', compact('posts'));
     }
 }
-?>
