@@ -28,6 +28,12 @@ Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
+Route::post('/contact', function () {
+    // ここにお問い合わせフォームの送信処理を追加します。
+    // 例えば、メールを送信したり、データベースに保存したりします。
+    // このルートは、お問い合わせフォームの送信先として使用されます。
+})->name('contact.submit');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
