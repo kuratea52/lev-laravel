@@ -9,6 +9,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dashboard/myposts', [DashboardController::class, 'posts'])->name('dashboard.myposts');
+
 Route::get('/', [PostController::class, 'index'])->name('index');
     
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
