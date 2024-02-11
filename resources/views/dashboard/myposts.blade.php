@@ -12,7 +12,11 @@
                     <h1 class="text-2xl font-bold mb-4">{{ __("Your Posts") }}</h1>
                     <ul>
                         @foreach($posts as $post)
-                            <li>{{ $post->title }}</li>
+                            <li>
+                                <a href="{{ route('posts.show', $post->id) }}" class="text-blue-500 hover:underline">
+                                    {{ $post->title }}
+                                </a>
+                            </li>
                             <!-- 他の投稿情報も表示する場合はここに追加 -->
                         @endforeach
                     </ul>
