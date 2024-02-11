@@ -26,12 +26,13 @@ class PostController extends Controller
             'oneParticipantLikesRanking',
             'budgetLikesRanking',
             'dayTripLikesRanking',
-            'posts'));
+            'posts'
+        ));
     }
     
     public function show(Post $post)
     {
-        return view('posts.show')->with(['post' => $post]);
+        return view('posts.show', compact('post'));
     }
     
     public function store(Request $request)
@@ -44,6 +45,7 @@ class PostController extends Controller
             'budget' => 'required|string',
             'stay_duration' => 'required|string',
             'content' => 'required|string',
+            'is_public' => 'boolean', // 公開可否をブール値としてバリデーション
         ]);
         
         $post = new Post();
@@ -54,6 +56,7 @@ class PostController extends Controller
         $post->budget = $validatedData['budget'];
         $post->stay_duration = $validatedData['stay_duration'];
         $post->content = $validatedData['content'];
+        $post->is_public = $validatedData['is_public']; // 公開可否の値を保存
         $post->user_id = auth()->id(); // 現在のログインユーザーのIDを保存
         $post->save();
         
@@ -62,21 +65,22 @@ class PostController extends Controller
     
     public function edit(Post $post)
     {
-        return view('posts.edit')->with(['post' => $post]);
+        return view('posts.edit', compact('post'));
     }
     
     public function update(PostRequest $request, Post $post)
     {
-        // $input_post = $request['post'];
         $validatedData = $request->validated();
-        $post->fill($input_post)->save();
-        return redirect('/posts/' . $post->id);
+        
+        $post->fill($validatedData);
+        $post->save();
+        
+        return redirect()->route('posts.show', $post->id);
     }
     
     public function delete(Post $post)
     {
         $post->delete();
-        return redirect('/posts');
+        return redirect()->route('posts.index');
     }
 }
-?>
