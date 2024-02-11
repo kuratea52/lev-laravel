@@ -70,6 +70,15 @@
                 <label for="content" class="block font-medium text-gray-700">内容</label>
                 <textarea id="content" name="content" rows="5" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
             </div>
+            
+            <!-- 公開可否 -->
+            <div class="mt-4">
+                <label for="is_public" class="block font-medium text-gray-700">公開可否</label>
+                <select name="is_public" id="is_public" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="1">公開</option>
+                    <option value="0">非公開</option>
+                </select>
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 <button>
