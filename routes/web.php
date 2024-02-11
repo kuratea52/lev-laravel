@@ -19,7 +19,6 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/create', 'create')->name('create');
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
-    Route::get('/posts/{post}/edit', 'edit')->name('edit');
 });
 
 Route::get('/newpost', function () {
@@ -28,14 +27,14 @@ Route::get('/newpost', function () {
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
 Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
 Route::post('/contact', function () {
-    // ここにお問い合わせフォームの送信処理を追加します。
-    // 例えば、メールを送信したり、データベースに保存したりします。
-    // このルートは、お問い合わせフォームの送信先として使用されます。
+    // ここにお問い合わせフォームの送信処理を追加する。
 })->name('contact.submit');
 
 Route::middleware('auth')->group(function () {
