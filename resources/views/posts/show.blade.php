@@ -26,6 +26,11 @@
                 </div>
             </div>
             @auth <!-- ログインしている場合のみ表示 -->
+                @if (auth()->user()->id === $post->user_id) <!-- ログインユーザーが投稿者の場合 -->
+                <div class="text-center mt-4">
+                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
+                </div>
+                @else <!-- ログインユーザーが投稿者でない場合 -->
                 <div class="text-center mt-4">
                     <!-- いいね機能の追加 -->
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
@@ -34,6 +39,7 @@
                     </form>
                     <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
                 </div>
+                @endif
             @endauth
         </div>
         <div class="footer text-center mt-4">
@@ -53,18 +59,16 @@
                     method: this.method,
                     body: formData
                 });
-        
+            
                 if (!response.ok) {
                     throw new Error('いいねの追加に失敗しました。');
                 }
-        
-                // レスポンスをJSONとして解析していいね数を取得
-                const data = await response.json();
-        
-                // レスポンスデータを処理し、いいね数を更新
+            
+                // 現在のいいね数を取得して1を加えて更新
                 const likeCountElement = document.getElementById('likeCount');
                 if (likeCountElement) {
-                    likeCountElement.textContent = data.likes; // 新しいいいね数を表示
+                    const currentLikeCount = parseInt(likeCountElement.textContent);
+                    likeCountElement.textContent = currentLikeCount + 1; // 現在のいいね数に1を加えて表示を更新
                 }
             } catch (error) {
                 console.error('エラー:', error);
