@@ -14,7 +14,11 @@
                 <p><strong>参加者数:</strong> {{ $post->participants }}</p>
                 <p><strong>予算:</strong> {{ $post->budget }}</p>
                 <p><strong>滞在期間:</strong> {{ $post->stay_duration }}</p>
-                <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
+                @auth
+                    @if (auth()->user()->id === $post->user_id)
+                        <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
+                    @endif
+                @endauth
                 <p><strong>いいね数:</strong> <span id="likeCount">{{ $post->likes }}</span></p>
                 <p><strong>作成日時:</strong> {{ $post->created_at }}</p>
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
