@@ -16,7 +16,6 @@ Route::get('/', [PostController::class, 'index'])->name('index');
     
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::post('/posts', 'store')->name('store');
-    Route::get('/posts/create', 'create')->name('create');
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
 });
@@ -28,6 +27,8 @@ Route::get('/newpost', function () {
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
 
 Route::get('/contactus', function () {
     return view('contactus');
