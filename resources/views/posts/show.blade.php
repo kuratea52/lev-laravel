@@ -15,7 +15,7 @@
                 <p><strong>予算:</strong> {{ $post->budget }}</p>
                 <p><strong>滞在期間:</strong> {{ $post->stay_duration }}</p>
                 <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
-                <p><strong>いいね数:</strong> {{ $post->likes }}</p>
+                <p><strong>いいね数:</strong> <span id="likeCount">{{ $post->likes }}</span></p>
                 <p><strong>作成日時:</strong> {{ $post->created_at }}</p>
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
             </div>
@@ -28,7 +28,7 @@
             @auth <!-- ログインしている場合のみ表示 -->
                 <div class="text-center mt-4">
                     <!-- いいね機能の追加 -->
-                    <form method="POST" action="{{ route('posts.like', $post->id) }}">
+                    <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
                         @csrf
                         <button type="submit" class="text-blue-500 hover:underline">いいね</button>
                     </form>
@@ -40,4 +40,36 @@
             <a href="/" class="text-blue-500 hover:underline">戻る</a>
         </div>
     </div>
+
+    <script>
+        // いいねフォームのサブミットを処理するJavaScriptコード
+        document.getElementById('likeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // デフォルトのフォームの送信をキャンセル
+            
+            // フォームデータを取得
+            const formData = new FormData(this);
+    
+            // フォームデータをサーバーに送信
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // 成功したらレスポンスをJSONとして解析
+                }
+                throw new Error('いいねの追加に失敗しました。');
+            })
+            .then(data => {
+                // レスポンスデータを処理（ここではいいね数を更新）
+                const likeCountElement = document.getElementById('likeCount');
+                if (likeCountElement) {
+                    likeCountElement.textContent = data.likes;
+                }
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+            });
+        });
+    </script>
 </x-app-layout>
