@@ -26,11 +26,11 @@
                 </div>
             </div>
             @auth <!-- ログインしている場合のみ表示 -->
-                @if (auth()->user()->id === $post->user_id) <!-- ログインユーザーが投稿者である場合のみ表示 -->
+                @if (auth()->user()->id === $post->user_id) <!-- ログインユーザーが投稿者の場合 -->
                 <div class="text-center mt-4">
                     <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
                 </div>
-                @endif
+                @else <!-- ログインユーザーが投稿者でない場合 -->
                 <div class="text-center mt-4">
                     <!-- いいね機能の追加 -->
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
@@ -39,6 +39,7 @@
                     </form>
                     <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
                 </div>
+                @endif
             @endauth
         </div>
         <div class="footer text-center mt-4">
