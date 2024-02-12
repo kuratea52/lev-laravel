@@ -43,33 +43,32 @@
 
     <script>
         // いいねフォームのサブミットを処理するJavaScriptコード
-        document.getElementById('likeForm').addEventListener('submit', function(event) {
+        document.getElementById('likeForm').addEventListener('submit', async function(event) {
             event.preventDefault(); // デフォルトのフォームの送信をキャンセル
+                    
+            const formData = new FormData(this); // フォームデータを取得
             
-            // フォームデータを取得
-            const formData = new FormData(this);
-    
-            // フォームデータをサーバーに送信
-            fetch(this.action, {
-                method: this.method,
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json(); // 成功したらレスポンスをJSONとして解析
+            try {
+                const response = await fetch(this.action, {
+                    method: this.method,
+                    body: formData
+                });
+        
+                if (!response.ok) {
+                    throw new Error('いいねの追加に失敗しました。');
                 }
-                throw new Error('いいねの追加に失敗しました。');
-            })
-            .then(data => {
-                // レスポンスデータを処理（ここではいいね数を更新）
+        
+                // レスポンスをJSONとして解析していいね数を取得
+                const data = await response.json();
+        
+                // レスポンスデータを処理し、いいね数を更新
                 const likeCountElement = document.getElementById('likeCount');
                 if (likeCountElement) {
-                    likeCountElement.textContent = data.likes;
+                    likeCountElement.textContent = data.likes; // 新しいいいね数を表示
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('エラー:', error);
-            });
+            }
         });
     </script>
 </x-app-layout>
