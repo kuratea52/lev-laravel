@@ -59,18 +59,16 @@
                     method: this.method,
                     body: formData
                 });
-        
+            
                 if (!response.ok) {
                     throw new Error('いいねの追加に失敗しました。');
                 }
-        
-                // レスポンスをJSONとして解析していいね数を取得
-                const data = await response.json();
-        
-                // レスポンスデータを処理し、いいね数を更新
+            
+                // 現在のいいね数を取得して1を加えて更新
                 const likeCountElement = document.getElementById('likeCount');
                 if (likeCountElement) {
-                    likeCountElement.textContent = data.likes; // 新しいいいね数を表示
+                    const currentLikeCount = parseInt(likeCountElement.textContent);
+                    likeCountElement.textContent = currentLikeCount + 1; // 現在のいいね数に1を加えて表示を更新
                 }
             } catch (error) {
                 console.error('エラー:', error);
