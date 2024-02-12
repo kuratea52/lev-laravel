@@ -25,7 +25,8 @@ class Post extends Model
     
     public static function getTotalLikesRanking($limit = 3)
     {
-        return self::orderByDesc('likes')
+        return self::where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->orderByDesc('likes')
             ->limit($limit)
             ->get();
     }
@@ -33,6 +34,7 @@ class Post extends Model
     public static function getRankingByRegion($region, $limit = 3)
     {
         return self::where('region', $region)
+            ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -41,6 +43,7 @@ class Post extends Model
     public static function getRankingBySeason($season, $limit = 3)
     {
         return self::where('season', $season)
+            ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -49,6 +52,7 @@ class Post extends Model
     public static function getLikesRankingByParticipants($participants, $limit = 3)
     {
         return self::where('participants', $participants)
+            ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -57,6 +61,7 @@ class Post extends Model
     public static function getLikesRankingByBudget($budget, $limit = 3)
     {
         return self::where('budget', $budget)
+            ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -65,6 +70,7 @@ class Post extends Model
     public static function getLikesRankingByStayDuration($stayDuration, $limit = 3)
     {
         return self::where('stay_duration', $stayDuration)
+            ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -72,6 +78,8 @@ class Post extends Model
     
     public function getByLimit(int $limit_count = 10)
     {
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->orderBy('updated_at', 'DESC')
+            ->paginate($limit_count);
     }
 }
