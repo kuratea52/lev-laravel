@@ -14,9 +14,7 @@
                 <p><strong>参加者数:</strong> {{ $post->participants }}</p>
                 <p><strong>予算:</strong> {{ $post->budget }}</p>
                 <p><strong>滞在期間:</strong> {{ $post->stay_duration }}</p>
-                @if(auth()->id() === $post->user_id)
-                    <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
-                @endif
+                <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
                 <p><strong>いいね数:</strong> {{ $post->likes }}</p>
                 <p><strong>作成日時:</strong> {{ $post->created_at }}</p>
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
@@ -27,11 +25,16 @@
                     <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
-            @if(auth()->id() === $post->user_id)
+            @auth <!-- ログインしている場合のみ表示 -->
                 <div class="text-center mt-4">
-                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
+                    <!-- いいね機能の追加 -->
+                    <form method="POST" action="{{ route('posts.like', $post->id) }}">
+                        @csrf
+                        <button type="submit" class="text-blue-500 hover:underline">いいね</button>
+                    </form>
+                    <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
                 </div>
-            @endif
+            @endauth
         </div>
         <div class="footer text-center mt-4">
             <a href="/" class="text-blue-500 hover:underline">戻る</a>

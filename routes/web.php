@@ -28,6 +28,8 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
+Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+
 Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
