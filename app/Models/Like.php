@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,5 +22,14 @@ class Like extends Model
     public function post()
     {
         return $this->belongsTo(Post::class);
+    }
+
+    // ユーザーと投稿の組み合わせを一意にする
+    protected function setKeysForSaveQuery($query)
+    {
+        $query
+            ->where('user_id', '=', $this->getAttribute('user_id'))
+            ->where('post_id', '=', $this->getAttribute('post_id'));
+        return $query;
     }
 }
