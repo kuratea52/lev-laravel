@@ -3,7 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -29,6 +29,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
 Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+Route::post('/posts/{post}/like', [LikeController::class, 'store'])->name('posts.like');
 
 Route::get('/contactus', function () {
     return view('contactus');

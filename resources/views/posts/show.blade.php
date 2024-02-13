@@ -56,6 +56,7 @@
         document.getElementById('likeForm').addEventListener('submit', async function(event) {
             event.preventDefault(); // デフォルトのフォームの送信をキャンセル
                     
+
             const formData = new FormData(this); // フォームデータを取得
             
             try {
