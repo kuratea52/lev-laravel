@@ -23,9 +23,15 @@ class Post extends Model
         'is_public'
     ];
     
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
     public static function getTotalLikesRanking($limit = 3)
     {
         return self::where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -35,6 +41,7 @@ class Post extends Model
     {
         return self::where('region', $region)
             ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -44,6 +51,7 @@ class Post extends Model
     {
         return self::where('season', $season)
             ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -53,6 +61,7 @@ class Post extends Model
     {
         return self::where('participants', $participants)
             ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -62,6 +71,7 @@ class Post extends Model
     {
         return self::where('budget', $budget)
             ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
@@ -71,6 +81,7 @@ class Post extends Model
     {
         return self::where('stay_duration', $stayDuration)
             ->where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->withCount('likes') // いいね数をカウントする
             ->orderByDesc('likes')
             ->limit($limit)
             ->get();
