@@ -23,6 +23,22 @@ class Post extends Model
         'is_public'
     ];
     
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
+    public function likers()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'post_id', 'user_id');
+    }
+    
+    // ユーザーが同じ投稿に複数回「いいね」できないようにする
+    public function hasBeenLikedByUser($userId)
+    {
+        return $this->likes()->where('user_id', $userId)->exists();
+    }
+    
     public static function getTotalLikesRanking($limit = 3)
     {
         return self::where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
