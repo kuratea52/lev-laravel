@@ -26,6 +26,9 @@ class LikeController extends Controller
         $like->post_id = $postId;
         $like->save();
         
+        // 投稿のlikesカラムをインクリメントする
+        Post::where('id', $postId)->increment('likes');
+        
         // 成功したらリダイレクトするなどの処理を行う
         return redirect()->back()->with('success', 'いいねしました。');
     }
