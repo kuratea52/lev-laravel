@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         // ユーザー、投稿、いいねのデータを生成する
         \App\Models\User::factory(30)->create();
         \App\Models\Post::factory(100)->create();
-        \App\Models\Like::factory(30)->create();
         
         // 管理者ユーザーを作成する
         User::create([

@@ -50,34 +50,7 @@
             <a href="/" class="text-blue-500 hover:underline">戻る</a>
         </div>
     </div>
-
-    <script>
-        // いいねフォームのサブミットを処理するJavaScriptコード
-        document.getElementById('likeForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // デフォルトのフォームの送信をキャンセル
-                    
-
-            const formData = new FormData(this); // フォームデータを取得
-            
-            try {
-                const response = await fetch(this.action, {
-                    method: this.method,
-                    body: formData
-                });
-            
-                if (!response.ok) {
-                    throw new Error('いいねの追加に失敗しました。');
-                }
-            
-                // 現在のいいね数を取得して1を加えて更新
-                const likeCountElement = document.getElementById('likeCount');
-                if (likeCountElement) {
-                    const currentLikeCount = parseInt(likeCountElement.textContent);
-                    likeCountElement.textContent = currentLikeCount + 1; // 現在のいいね数に1を加えて表示を更新
-                }
-            } catch (error) {
-                console.error('エラー:', error);
-            }
-        });
-    </script>
+    
+    <!-- JavaScriptファイルの読み込み -->
+    <script src="{{ asset('js/like.js') }}" defer></script>
 </x-app-layout>
