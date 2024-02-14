@@ -18,7 +18,7 @@ class LikeController extends Controller
         
         // 既にいいねしている場合は何もしない
         if ($existingLike) {
-            return redirect()->back()->with('error', '既にいいねしています。');
+            return response()->json(['error' => '既にいいねしています。', 'alreadyLiked' => true]);
         }
         
         // 新しいいいねを作成する
@@ -29,5 +29,8 @@ class LikeController extends Controller
         
         // 投稿のlikesカラムをインクリメントする
         Post::where('id', $postId)->increment('likes');
+        
+        // 成功したらリダイレクトするなどの処理を行う
+        return response()->json(['success' => 'いいねしました。', 'alreadyLiked' => false]);
     }
 }
