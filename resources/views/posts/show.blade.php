@@ -39,7 +39,8 @@
                     <!-- いいね機能の追加 -->
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
                         @csrf
-                        <button type="submit" class="text-blue-500 hover:underline">いいね</button>
+                        <button id="likeButton" type="submit" class="text-blue-500 hover:underline">いいね</button>
+                        <!--<button id="unlikeButton" hidden type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>-->
                     </form>
                     <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
                 </div>
@@ -52,5 +53,5 @@
     </div>
     
     <!-- JavaScriptファイルの読み込み -->
-    <script src="{{ asset('js/like.js') }}" defer></script>
+    <script src="{{ asset('build/assets/like-2786951e.js') }}"></script>
 </x-app-layout>
