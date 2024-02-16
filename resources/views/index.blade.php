@@ -90,6 +90,13 @@
     </div>
 
     <script>
+        // Enterキーが押されたときに検索を実行する
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchPosts();
+            }
+        });
+    
         function searchPosts() {
             var keyword = document.getElementById('searchInput').value;
             window.location.href = '/posts/result?keyword=' + keyword;
