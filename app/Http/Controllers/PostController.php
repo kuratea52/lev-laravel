@@ -33,8 +33,14 @@ class PostController extends Controller
     public function result(Request $request)
     {
         $keyword = $request->input('keyword');
-        // 検索処理を実装し、$keywordに基づいて結果を取得する
-        $searchResults = Post::where('title', 'like', '%'.$keyword.'%')->get();
+        $searchResults = Post::where('title', 'like', '%' . $keyword . '%')
+                             ->orWhere('content', 'like', '%' . $keyword . '%')
+                             ->orWhere('region', 'like', '%' . $keyword . '%')
+                             ->orWhere('season', 'like', '%' . $keyword . '%')
+                             ->orWhere('participants', 'like', '%' . $keyword . '%')
+                             ->orWhere('budget', 'like', '%' . $keyword . '%')
+                             ->orWhere('stay_duration', 'like', '%' . $keyword . '%')
+                             ->get();
         
         return view('posts.result', compact('searchResults'));
     }
