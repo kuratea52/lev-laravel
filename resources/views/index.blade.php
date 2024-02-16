@@ -90,6 +90,11 @@
     </div>
 
     <script>
+        function searchPosts() {
+            var keyword = document.getElementById('searchInput').value;
+            window.location.href = '/posts/result?keyword=' + keyword;
+        }
+    
         function deletePost(id) {
             'use strict'
             if (confirm('Are you sure you want to delete this post?')) {
