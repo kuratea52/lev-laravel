@@ -10,7 +10,9 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             @foreach($searchResults as $post)
                 <div class="bg-white shadow-sm rounded-lg p-4">
-                    <h3 class="text-lg font-semibold mb-2">{{ $post->title }}</h3>
+                    <h3 class="text-lg font-semibold mb-2">
+                        <a href="{{ route('posts.show', $post->id) }}" class="hover:underline">{{ $post->title }}</a>
+                    </h3>
                     <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 200) }}</p>
                     <div class="flex justify-between">
                         <span class="text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
