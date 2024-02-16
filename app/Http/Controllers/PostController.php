@@ -30,6 +30,15 @@ class PostController extends Controller
         ));
     }
     
+    public function result(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        // 検索処理を実装し、$keywordに基づいて結果を取得する
+        $searchResults = Post::where('title', 'like', '%'.$keyword.'%')->get();
+        
+        return view('posts.result', compact('searchResults'));
+    }
+    
     public function show(Post $post)
     {
         return view('posts.show', compact('post'));
