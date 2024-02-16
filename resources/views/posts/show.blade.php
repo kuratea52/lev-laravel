@@ -47,8 +47,13 @@
                 @endif
             @endauth
         </div>
+        @if ($searchKeyword) <!-- 検索結果からの遷移の場合のみ表示 -->
         <div class="footer text-center mt-4">
-            <a href="/" class="text-blue-500 hover:underline">戻る</a>
+            <a href="{{ route('posts.result', ['keyword' => $searchKeyword]) }}" class="text-blue-500 hover:underline">検索結果一覧へ</a>
+        </div>
+        @endif
+        <div class="footer text-center mt-4">
+            <a href="/" class="text-blue-500 hover:underline">トップへ戻る</a>
         </div>
     </div>
     

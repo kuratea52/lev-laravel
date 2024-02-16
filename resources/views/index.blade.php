@@ -87,30 +87,21 @@
                 </li>
             @endforeach
         </ul>
-
-        <!--<div class='posts mt-8'>-->
-        <!--    @foreach ($posts as $post)-->
-        <!--        <div class='post border rounded p-4 mb-4 bg-blue-100'>-->
-        <!--            <h2 class='text-2xl font-semibold mb-2'>-->
-        <!--                <a href="/posts/{{ $post->id }}" class="text-blue-500 hover:underline">{{ $post->title }}</a>-->
-        <!--            </h2>-->
-        <!--            <p class='text-gray-700'>{{ $post->body }}</p>-->
-        <!--            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" class="mt-2">-->
-        <!--                @csrf-->
-        <!--                @method('DELETE')-->
-        <!--                <button type="button" onclick="deletePost({{ $post->id }})" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>-->
-        <!--            </form>-->
-        <!--        </div>-->
-        <!--    @endforeach-->
-        <!--</div>-->
-
-        <!--<div class='paginate mt-8'>-->
-        <!--    {{-- $posts->links() --}}-->
-        <!--</div>-->
-
     </div>
 
     <script>
+        // Enterキーが押されたときに検索を実行する
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchPosts();
+            }
+        });
+    
+        function searchPosts() {
+            var keyword = document.getElementById('searchInput').value;
+            window.location.href = '/posts/result?keyword=' + keyword;
+        }
+    
         function deletePost(id) {
             'use strict'
             if (confirm('Are you sure you want to delete this post?')) {

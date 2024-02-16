@@ -24,6 +24,8 @@ Route::get('/newpost', function () {
     return view('newpost');
 })->middleware(['auth', 'verified'])->name('newpost');
 
+Route::get('/posts/result', [PostController::class, 'result'])->name('posts.result');
+
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');

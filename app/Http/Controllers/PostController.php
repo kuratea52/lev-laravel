@@ -11,6 +11,9 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
+        // 検索キーワードを削除する
+        session()->forget('search_keyword');
+        
         $totalLikesRanking = Post::getTotalLikesRanking();
         $kantoRanking = Post::getRankingByRegion('関東');
         $springRanking = Post::getRankingBySeason('春');
@@ -30,9 +33,36 @@ class PostController extends Controller
         ));
     }
     
+    public function result(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        session()->put('search_keyword', $keyword);
+        
+        $searchResults = Post::where('title', 'like', '%' . $keyword . '%')
+                             ->orWhere('content', 'like', '%' . $keyword . '%')
+                             ->orWhere('region', 'like', '%' . $keyword . '%')
+                             ->orWhere('season', 'like', '%' . $keyword . '%')
+                             ->orWhere('participants', 'like', '%' . $keyword . '%')
+                             ->orWhere('budget', 'like', '%' . $keyword . '%')
+                             ->orWhere('stay_duration', 'like', '%' . $keyword . '%')
+                             ->get();
+                             
+        return view('posts.result', compact('searchResults'));
+    }
+    
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        // 検索結果からの遷移かどうかを判定するための変数
+        $isFromSearch = session()->has('search_keyword');
+        
+        // 検索結果からの遷移の場合は、セッションから検索キーワードを削除しない
+        if ($isFromSearch) {
+            $searchKeyword = session('search_keyword');
+        } else {
+            $searchKeyword = null;
+        }
+    
+        return view('posts.show', compact('post', 'isFromSearch', 'searchKeyword'));
     }
     
     public function store(Request $request)
