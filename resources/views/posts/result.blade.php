@@ -4,6 +4,12 @@
             検索結果
         </h2>
     </x-slot>
+    
+    <div class="container mx-auto my-8">
+        <!-- トップページへのリンク -->
+        <div class="mb-4">
+            <a href="{{ route('index') }}" class="text-blue-500 hover:underline">トップページへ戻る</a>
+        </div>
 
     <div class="container mx-auto my-8">
         <!-- 検索結果の表示 -->
