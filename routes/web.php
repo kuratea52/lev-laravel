@@ -16,7 +16,6 @@ Route::get('/', [PostController::class, 'index'])->name('index');
     
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::post('/posts', 'store')->name('store');
-    Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
 });
 
@@ -29,6 +28,8 @@ Route::get('/posts/result', [PostController::class, 'result'])->name('posts.resu
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
 
 Route::post('/posts/{post}/like', [LikeController::class, 'store'])->name('posts.like');
 
