@@ -20,6 +20,13 @@ return new class extends Migration
             $table->text('content', 10000);
             $table->boolean('is_public')->default(true);
             $table->integer('likes')->default(0);
+            
+            // 行った場所１～２０のカラム
+            for ($i = 1; $i <= 20; $i++) {
+                $table->string("place_visited_$i", 255)->nullable();
+                $table->text("impressions_$i", 10000)->nullable();
+            }
+            
             $table->timestamps();
             $table->softDeletes();
             
