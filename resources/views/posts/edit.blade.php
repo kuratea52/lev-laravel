@@ -82,7 +82,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <button>
+                <button type="submit">
                     {{ __('修正する') }}
                 </button>
             </div>

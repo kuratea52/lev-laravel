@@ -13,7 +13,7 @@ class PostFactory extends Factory
 
     public function definition()
     {
-        return [
+        $data = [
             'user_id' => $this->faker->numberBetween(1, 10),
             'region' => $this->faker->randomElement(['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州', '沖縄']),
             'season' => $this->faker->randomElement(['春', '夏', '秋', '冬']),
@@ -27,5 +27,13 @@ class PostFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
         ];
+        
+        // 20個の場所と感想を追加
+        for ($i = 1; $i <= 20; $i++) {
+            $data["place_visited_$i"] = $this->faker->word;
+            $data["impressions_$i"] = $this->faker->realText();
+        }
+
+        return $data;
     }
 }

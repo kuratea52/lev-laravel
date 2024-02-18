@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // ユーザー、投稿、いいねのデータを生成する
         \App\Models\User::factory(30)->create();
         \App\Models\Post::factory(100)->create();
         
