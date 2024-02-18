@@ -33,9 +33,6 @@ document.getElementById('likeForm').addEventListener('submit', async function(ev
                 const currentLikeCount = parseInt(likeCountElement.textContent);
                 likeCountElement.textContent = currentLikeCount + 1; // 現在のいいね数に1を加えて表示を更新
             }
-            // var unlikeButton = document.getElementById('unlikeButton');
-            // unlikeButton.removeAttribute('hidden'); // hidden属性を削除する
-            // console.log(unlikeButton);
         }
     } catch (error) {
         console.error('エラー:', error);
