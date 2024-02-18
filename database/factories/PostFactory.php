@@ -27,5 +27,13 @@ class PostFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
         ];
+        
+        // 20個の場所と感想を追加
+        for ($i = 1; $i <= 20; $i++) {
+            $data["place_visited_$i"] = $this->faker->word;
+            $data["impressions_$i"] = $this->faker->realText();
+        }
+
+        return $data;
     }
 }
