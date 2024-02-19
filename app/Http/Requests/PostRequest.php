@@ -8,7 +8,7 @@ class PostRequest extends FormRequest
 {
     public function rules()
     {
-        return [
+        $rules = [
             'title' => 'required|string|max:255',
             'region' => 'required|string|max:255',
             'season' => 'required|string|max:255',
@@ -18,5 +18,12 @@ class PostRequest extends FormRequest
             'content' => 'required|string',
             'is_public' => 'required|boolean',
         ];
+    
+        for ($i = 1; $i <= 5; $i++) {
+            $rules["place_visited_$i"] = 'nullable|string|max:255';
+            $rules["impressions_$i"] = 'nullable|string';
+        }
+    
+        return $rules;
     }
 }
