@@ -19,7 +19,7 @@ class PostRequest extends FormRequest
             'is_public' => 'required|boolean',
         ];
     
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $rules["place_visited_$i"] = 'nullable|string|max:255';
             $rules["impressions_$i"] = 'nullable|string';
         }

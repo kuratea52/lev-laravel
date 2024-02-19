@@ -17,11 +17,23 @@ class Post extends Model
         'participants',
         'budget',
         'stay_duration',
-        'transportation',
         'title',
         'content',
-        'is_public'
+        'is_public',
+        'user_id',
+        
     ];
+    
+    // place_visited_$i と impressions_$i を追加
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        
+        for ($i = 1; $i <= 20; $i++) {
+            $this->fillable[] = "place_visited_$i";
+            $this->fillable[] = "impressions_$i";
+        }
+    }
     
     public function likes()
     {
