@@ -65,30 +65,16 @@ class PostController extends Controller
         return view('posts.show', compact('post', 'isFromSearch', 'searchKeyword'));
     }
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'region' => 'required|string',
-            'season' => 'required|string',
-            'participants' => 'required|string',
-            'budget' => 'required|string',
-            'stay_duration' => 'required|string',
-            'content' => 'required|string',
-            'is_public' => 'boolean', // 公開可否をブール値としてバリデーション
-        ]);
+        // バリデーション済みのデータを取得
+        $validatedData = $request->validated();
         
-        $post = new Post();
-        $post->title = $validatedData['title'];
-        $post->region = $validatedData['region'];
-        $post->season = $validatedData['season'];
-        $post->participants = $validatedData['participants'];
-        $post->budget = $validatedData['budget'];
-        $post->stay_duration = $validatedData['stay_duration'];
-        $post->content = $validatedData['content'];
-        $post->is_public = $validatedData['is_public']; // 公開可否の値を保存
-        $post->user_id = auth()->id(); // 現在のログインユーザーのIDを保存
-        $post->save();
+        // ログインユーザーのIDを設定
+        $validatedData['user_id'] = auth()->id();
+    
+        // Postモデルのインスタンスを作成してデータを保存
+        $post = Post::create($validatedData);
         
         return redirect()->route('posts.show', $post->id);
     }
@@ -100,10 +86,7 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
-        $validatedData = $request->validated();
-        
-        $post->fill($validatedData);
-        $post->save();
+        $post->update($request->validated());
         
         return redirect()->route('posts.show', $post->id);
     }

@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
     
-    <head>
-        <link rel="stylesheet" href="{{ asset('../css/index.css') }}">
-    </head>
+    <!--<head>-->
+    <!--    <link rel="stylesheet" href="{{-- asset('../css/index.css') --}}">-->
+    <!--</head>-->
 
     <div class="container mx-auto my-8">
         <!-- Search Bar -->
