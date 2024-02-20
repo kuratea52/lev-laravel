@@ -17,6 +17,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "fs-extra": "^11.2.0"
+        "fs-extra": "^11.2.0",
+        "whatwg-fetch": "^3.6.20"
     }
 }
