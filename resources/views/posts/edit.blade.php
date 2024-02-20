@@ -80,6 +80,30 @@
                     <option value="0" {{ !$post->is_public ? 'selected' : '' }}>非公開</option>
                 </select>
             </div>
+            
+            <!-- 行った場所と感想 -->
+            <div class="mt-4">
+                <label class="block font-medium text-gray-700">行った場所と感想</label>
+                <!-- 行った場所と感想のフォーム -->
+                @for ($i = 1; $i <= 20; $i++)
+                    @if (!empty($post["place_visited_$i"]) || !empty($post["impressions_$i"]))
+                    <div class="mt-2 flex items-center">
+                        <input id="place_visited_{{ $i }}" name="place_visited_{{ $i }}" type="text" class="block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="行った場所{{ $i }}" value="{{ $post["place_visited_$i"] ?? '' }}" />
+                        <textarea id="impressions_{{ $i }}" name="impressions_{{ $i }}" rows="2" class="block ml-2 w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="感想{{ $i }}">{{ $post["impressions_$i"] ?? '' }}</textarea>
+                    </div>
+                    @endif
+                @endfor
+            
+                <!-- 追加入力 -->
+                <div id="additional-fields" class="mt-2">
+                    <button type="button" id="add-more-fields" class="flex items-center text-gray-700 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10 5.523 0 10-4.477 10-10C20 4.477 15.523 0 10 0zm1 10a1 1 0 0 1-1 1H6a1 1 0 1 1 0-2h4V6a1 1 0 1 1 2 0v4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>追加入力</span>
+                    </button>
+                </div>
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 <button type="submit">
@@ -88,4 +112,6 @@
             </div>
         </form>
     </div>
+    
+    <script src="{{ asset('/js/addField.js') }}"></script>
 </x-app-layout>
