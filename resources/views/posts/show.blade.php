@@ -22,7 +22,23 @@
                 <p><strong>いいね数:</strong> <span id="likeCount">{{ $post->likes }}</span></p>
                 <p><strong>作成日時:</strong> {{ $post->created_at }}</p>
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
+                
+                <!-- 行った場所と感想 -->
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">行った場所と感想</h3>
+                    <ul>
+                        @for ($i = 1; $i <= 20; $i++)
+                            @if (!empty($post["place_visited_$i"]) && !empty($post["impressions_$i"]))
+                                <li>
+                                    <strong>行った場所{{ $i }}:</strong> {{ $post["place_visited_$i"] }}<br>
+                                    <strong>感想{{ $i }}:</strong> {{ $post["impressions_$i"] }}
+                                </li>
+                            @endif
+                        @endfor
+                    </ul>
+                </div>
             </div>
+            
             <div class="content">
                 <div class="content__post mb-4">
                     <h3 class="text-xl font-semibold mb-2">本文</h3>
@@ -57,42 +73,5 @@
         </div>
     </div>
     
-    <script>
-        document.getElementById('likeForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // デフォルトのフォームの送信をキャンセル
-        
-            const formData = new FormData(this); // フォームデータを取得
-            
-            try {
-                const response = await fetch(this.action, {
-                    method: this.method,
-                    body: formData
-                });
-            
-                if (!response.ok) {
-                    throw new Error('いいねの追加に失敗しました。');
-                }
-        
-                const responseData = await response.json(); // レスポンスデータをJSON形式で取得
-        
-                // サーバーからのレスポンスでいいねが既に存在するかを確認し、ボタンを無効化する
-                if (responseData.alreadyLiked) {
-                    const likeButton = document.querySelector('#likeForm button');
-                    if (likeButton) {
-                        likeButton.disabled = true;
-                        console.log(1);
-                    }
-                } else {
-                    // 現在のいいね数を取得して1を加えて更新
-                    const likeCountElement = document.getElementById('likeCount');
-                    if (likeCountElement) {
-                        const currentLikeCount = parseInt(likeCountElement.textContent);
-                        likeCountElement.textContent = currentLikeCount + 1; // 現在のいいね数に1を加えて表示を更新
-                    }
-                }
-            } catch (error) {
-                console.error('エラー:', error);
-            }
-        });
-    </script>
+    <script src="{{ asset('/js/like.js') }}"></script>
 </x-app-layout>
