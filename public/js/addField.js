@@ -6,12 +6,11 @@ document.getElementById('add-more-fields').addEventListener('click', function() 
     if (currentFieldsCount < 20) {
         var additionalFields = document.getElementById('additional-fields');
         var newFields = document.createElement('div');
-        var fieldIndex = currentFieldsCount + 1;
 
         newFields.innerHTML = `
             <div class="mt-2 flex items-center">
-                <input id="place_visited_${fieldIndex}" name="place_visited_${fieldIndex}" type="text" class="block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="行った場所${fieldIndex}" />
-                <textarea id="impressions_${fieldIndex}" name="impressions_${fieldIndex}" rows="2" class="block ml-2 w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="感想${fieldIndex}"></textarea>
+                <input id="place_visited_${currentFieldsCount + 1}" name="place_visited_${currentFieldsCount + 1}" type="text" class="block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="行った場所${currentFieldsCount + 1}" />
+                <textarea id="impressions_${currentFieldsCount + 1}" name="impressions_${currentFieldsCount + 1}" rows="2" class="block ml-2 w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="感想${currentFieldsCount + 1}"></textarea>
             </div>
         `;
         additionalFields.appendChild(newFields);
