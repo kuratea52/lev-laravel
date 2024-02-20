@@ -22,7 +22,23 @@
                 <p><strong>いいね数:</strong> <span id="likeCount">{{ $post->likes }}</span></p>
                 <p><strong>作成日時:</strong> {{ $post->created_at }}</p>
                 <p><strong>更新日時:</strong> {{ $post->updated_at }}</p>
+                
+                <!-- 行った場所と感想 -->
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">行った場所と感想</h3>
+                    <ul>
+                        @for ($i = 1; $i <= 20; $i++)
+                            @if (!empty($post["place_visited_$i"]) && !empty($post["impressions_$i"]))
+                                <li>
+                                    <strong>行った場所{{ $i }}:</strong> {{ $post["place_visited_$i"] }}<br>
+                                    <strong>感想{{ $i }}:</strong> {{ $post["impressions_$i"] }}
+                                </li>
+                            @endif
+                        @endfor
+                    </ul>
+                </div>
             </div>
+            
             <div class="content">
                 <div class="content__post mb-4">
                     <h3 class="text-xl font-semibold mb-2">本文</h3>
