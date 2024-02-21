@@ -104,7 +104,7 @@
 
             <!-- 送信ボタン -->
             <div class="flex items-center justify-end mt-4">
-                <button>
+                <button id="submitBtn">
                     {{ __('投稿する') }}
                 </button>
             </div>
@@ -112,4 +112,5 @@
     </div>
     
     <script src="{{ asset('/js/addField.js') }}"></script>
+    <script src="{{ asset('/js/postConfirmation.js') }}"></script>
 </x-app-layout>
