@@ -45,10 +45,16 @@
                     <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
+            
             @auth <!-- ログインしている場合のみ表示 -->
                 @if (auth()->user()->id === $post->user_id) <!-- ログインユーザーが投稿者の場合 -->
                 <div class="text-center mt-4">
-                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正する</a>
+                    <form method="POST" action="{{ route('posts.delete', $post->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:underline mr-4">削除する</button>
+                    </form>
                 </div>
                 @else <!-- ログインユーザーが投稿者でない場合 -->
                 <div class="text-center mt-4">
