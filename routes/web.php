@@ -18,6 +18,8 @@ Route::get('/newpost', function () {
     return view('newpost');
 })->middleware(['auth', 'verified'])->name('newpost');
 
+Route::post('/newpost', [PostController::class, 'store'])->name('posts.store');
+
 Route::get('/posts/result', [PostController::class, 'result'])->name('posts.result');
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
