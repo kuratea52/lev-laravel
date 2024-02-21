@@ -1,8 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            みんなの旅日記
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                みんなの旅日記
+            </h2>
+            @auth
+                <p>ログインユーザー名: {{ auth()->user()->name }}</p>
+            @endauth
     </x-slot>
     
     <!--<head>-->
@@ -10,7 +14,7 @@
     <!--</head>-->
 
     <div class="container mx-auto my-8">
-        <!-- Search Bar -->
+        <!-- 検索バー -->
         <div class="mb-8 flex justify-end">
             <input type="text" id="searchInput" class="border-gray-300 border rounded-md p-2" placeholder="Search...">
             <button onclick="searchPosts()" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">Search</button>
@@ -89,24 +93,5 @@
         </ul>
     </div>
 
-    <script>
-        // Enterキーが押されたときに検索を実行する
-        document.getElementById('searchInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                searchPosts();
-            }
-        });
-    
-        function searchPosts() {
-            var keyword = document.getElementById('searchInput').value;
-            window.location.href = '/posts/result?keyword=' + keyword;
-        }
-    
-        function deletePost(id) {
-            'use strict'
-            if (confirm('Are you sure you want to delete this post?')) {
-                document.getElementById(`form_${id}`).submit();
-            }
-        }
-    </script>
+    <script src="{{ asset('/js/search.js') }}"></script>
 </x-app-layout>

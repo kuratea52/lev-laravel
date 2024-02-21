@@ -1,3 +1,5 @@
+// 「追加入力」ボタンがクリックされたときに、追加の入力欄を生成する
+
 document.getElementById('add-more-fields').addEventListener('click', function() {
     // 現在の入力欄数を取得
     var currentFieldsCount = document.querySelectorAll('[id^="place_visited_"]').length;

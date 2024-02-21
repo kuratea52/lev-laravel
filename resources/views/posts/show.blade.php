@@ -45,10 +45,16 @@
                     <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
+            
             @auth <!-- ログインしている場合のみ表示 -->
                 @if (auth()->user()->id === $post->user_id) <!-- ログインユーザーが投稿者の場合 -->
                 <div class="text-center mt-4">
-                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正</a>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="text-blue-500 hover:underline">修正する</a>
+                    <button onclick="confirmDelete()" class="text-red-500 hover:underline mr-4">削除する</button>
+                    <form id="deleteForm" method="POST" action="{{ route('posts.delete', $post->id) }}" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </div>
                 @else <!-- ログインユーザーが投稿者でない場合 -->
                 <div class="text-center mt-4">
@@ -74,4 +80,5 @@
     </div>
     
     <script src="{{ asset('/js/like.js') }}"></script>
+    <script src="{{ asset('/js/deleteConfirmation.js') }}"></script>
 </x-app-layout>

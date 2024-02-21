@@ -1,3 +1,5 @@
+// 「いいね」ボタンをクリックしたら非同期で追加される処理
+
 /*global fetch*/
 
 document.getElementById('likeForm').addEventListener('submit', async function(event) {
