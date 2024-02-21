@@ -80,12 +80,5 @@
     </div>
     
     <script src="{{ asset('/js/like.js') }}"></script>
-    
-     <script>
-        function confirmDelete() {
-            if (confirm('本当に削除しますか？')) {
-                document.getElementById('deleteForm').submit();
-            }
-        }
-    </script>
+    <script src="{{ asset('/js/deleteConfirmation.js') }}"></script>
 </x-app-layout>
