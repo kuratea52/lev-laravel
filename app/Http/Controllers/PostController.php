@@ -94,6 +94,6 @@ class PostController extends Controller
     public function delete(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('dashboard');
     }
 }
