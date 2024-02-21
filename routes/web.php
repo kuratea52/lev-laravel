@@ -14,11 +14,6 @@ Route::get('/dashboard/myposts', [DashboardController::class, 'posts'])->name('d
 
 Route::get('/', [PostController::class, 'index'])->name('index');
     
-Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-    Route::post('/posts', 'store')->name('store');
-    Route::delete('/posts/{post}', 'delete')->name('delete');
-});
-
 Route::get('/newpost', function () {
     return view('newpost');
 })->middleware(['auth', 'verified'])->name('newpost');
@@ -30,6 +25,8 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
 Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+
+Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
 
 Route::post('/posts/{post}', [LikeController::class, 'store'])->name('posts.like');
 
