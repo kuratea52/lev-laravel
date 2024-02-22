@@ -35,4 +35,6 @@
             @endforeach
         </div>
     </div>
+    
+    {{ $searchResults->withQueryString()->links() }}
 </x-app-layout>
