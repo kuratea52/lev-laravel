@@ -45,7 +45,7 @@ class PostController extends Controller
                              ->orWhere('participants', 'like', '%' . $keyword . '%')
                              ->orWhere('budget', 'like', '%' . $keyword . '%')
                              ->orWhere('stay_duration', 'like', '%' . $keyword . '%')
-                             ->get();
+                             ->paginate(9);
                              
         return view('posts.result', compact('searchResults'));
     }
