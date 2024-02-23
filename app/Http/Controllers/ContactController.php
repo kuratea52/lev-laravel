@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
+use App\Http\Requests\InquiryRequest;
 
 class ContactController extends Controller
 {
-    public function submit(Request $request)
+    public function submit(InquiryRequest $request)
     {
-        // バリデーションの処理を追加
-
         // フォームデータをデータベースに保存
         $inquiry = new Inquiry();
         $inquiry->category = $request->input('category');
