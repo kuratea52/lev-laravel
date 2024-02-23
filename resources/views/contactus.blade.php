@@ -38,8 +38,8 @@
                             </select>
                         </div>
                         <div class="mt-4">
-                            <label for="message" class="block text-sm font-medium text-gray-700">お問い合わせ内容</label>
-                            <textarea name="message" id="message" rows="4" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required></textarea>
+                            <label for="body" class="block text-sm font-medium text-gray-700">お問い合わせ内容</label>
+                            <textarea name="body" id="body" rows="4" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required></textarea>
                         </div>
                         <div class="mt-4">
                             <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">送信する</button>
