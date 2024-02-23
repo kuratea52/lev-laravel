@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Inquiry extends Model
 {
     // use HasFactory;
-    protected $fillable = ['category', 'email', 'body'];
+    protected $fillable = ['user_id', 'category', 'email', 'body'];
 }
