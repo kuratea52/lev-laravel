@@ -26,12 +26,16 @@
                     <form action="{{ route('contact.submit') }}" method="POST">
                         @csrf
                         <div class="mt-4">
-                            <label for="name" class="block text-sm font-medium text-gray-700">お名前</label>
-                            <input type="text" name="name" id="name" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
-                        </div>
-                        <div class="mt-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
                             <input type="email" name="email" id="email" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+                        </div>
+                        <div class="mt-4">
+                            <label for="category" class="block text-sm font-medium text-gray-700">カテゴリ</label>
+                            <select name="category" id="category" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
+                                <option value="サービスに関するご意見・ご要望">サービスに関するご意見・ご要望</option>
+                                <option value="不具合のご報告">不具合のご報告</option>
+                                <option value="その他">その他</option>
+                            </select>
                         </div>
                         <div class="mt-4">
                             <label for="message" class="block text-sm font-medium text-gray-700">お問い合わせ内容</label>
