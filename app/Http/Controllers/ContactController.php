@@ -13,9 +13,9 @@ class ContactController extends Controller
 
         // フォームデータをデータベースに保存
         $inquiry = new Inquiry();
-        $inquiry->name = $request->input('name');
+        $inquiry->category = $request->input('category');
         $inquiry->email = $request->input('email');
-        $inquiry->message = $request->input('message');
+        $inquiry->body = $request->input('body');
         $inquiry->save();
 
         return redirect()->back()->with('success', 'お問い合わせが送信されました。ありがとうございます！');
