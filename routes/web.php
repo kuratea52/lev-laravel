@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -36,9 +37,7 @@ Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
-Route::post('/contact', function () {
-    // ここにお問い合わせフォームの送信処理を追加する。
-})->name('contact.submit');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
