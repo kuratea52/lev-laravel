@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('inquiries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
+            $table->enum('category', ['サービスに関するご意見・ご要望', '不具合のご報告', 'その他'])->default('その他');
+            $table->string('email');
             $table->text('body');
             $table->timestamps();
             
