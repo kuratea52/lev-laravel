@@ -23,7 +23,7 @@
                     </dl>
                     <h3 class="text-lg font-semibold mb-4 mt-8">お問い合わせ</h3>
                     <p>ご質問やお問い合わせがございましたら、以下のフォームよりお気軽にお問い合わせください。</p>
-                    <form action="{{ route('contacts.thanks') }}" method="POST">
+                    <form action="{{ route('contactus.submit') }}" method="POST">
                         @csrf
                         <div class="mt-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
