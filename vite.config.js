@@ -10,7 +10,6 @@ export default defineConfig({
                 'resources/js/addField.js',
                 'resources/js/like.js',
                 'resources/js/postConfirmation.js',
-                'resources/js/search.js',
             ],
             refresh: true,
         }),

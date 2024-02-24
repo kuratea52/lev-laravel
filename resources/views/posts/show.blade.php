@@ -79,13 +79,6 @@
         </div>
     </div>
     
-    <script>
-        function confirmDelete() {
-            if (confirm('本当に削除しますか？')) {
-                document.getElementById('deleteForm').submit();
-            }
-        }
-    </script>
-    
+    <script src="{{ asset('/js/deleteConfirmation.js') }}"></script>
     @vite('resources/js/like.js')
 </x-app-layout>

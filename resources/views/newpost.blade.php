@@ -111,6 +111,6 @@
         </form>
     </div>
     
-    <script src="{{ asset('/js/addField.js') }}"></script>
-    <script src="{{ asset('/js/postConfirmation.js') }}"></script>
+    @vite('resources/js/addField.js')
+    @vite('resources/js/postConfirmation.js')
 </x-app-layout>
