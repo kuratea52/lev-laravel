@@ -113,5 +113,5 @@
         </form>
     </div>
     
-    <script src="{{ asset('/js/addField.js') }}"></script>
+    @vite('resources/js/addField.js')
 </x-app-layout>
