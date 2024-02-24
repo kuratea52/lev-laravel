@@ -93,5 +93,5 @@
         </ul>
     </div>
 
-    <script src="{{ asset('/js/search.js') }}"></script>
+    @vite('resources/js/search.js')
 </x-app-layout>

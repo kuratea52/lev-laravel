@@ -23,7 +23,7 @@
                     </dl>
                     <h3 class="text-lg font-semibold mb-4 mt-8">お問い合わせ</h3>
                     <p>ご質問やお問い合わせがございましたら、以下のフォームよりお気軽にお問い合わせください。</p>
-                    <form action="{{ route('contacts.thanks') }}" method="POST">
+                    <form action="{{ route('contactus.submit') }}" method="POST">
                         @csrf
                         <div class="mt-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
@@ -42,11 +42,13 @@
                             <textarea name="body" id="body" rows="4" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required></textarea>
                         </div>
                         <div class="mt-4">
-                            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">送信する</button>
+                            <button id="submitButton" type="submit"class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">送信する</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
+    @vite('resources/js/inquiryConfirmation.js')
 </x-app-layout>

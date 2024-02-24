@@ -7,6 +7,12 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/addField.js',
+                'resources/js/deleteConfirmation.js',
+                'resources/js/like.js',
+                'resources/js/inquiryConfirmation.js',
+                'resources/js/postConfirmation.js',
+                'resources/js/search.js',
             ],
             refresh: true,
         }),
