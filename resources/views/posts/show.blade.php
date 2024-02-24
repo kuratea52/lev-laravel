@@ -79,6 +79,6 @@
         </div>
     </div>
     
-    <script src="{{ asset('/js/deleteConfirmation.js') }}"></script>
+    @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like.js')
 </x-app-layout>
