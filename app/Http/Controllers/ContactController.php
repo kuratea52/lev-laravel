@@ -20,7 +20,11 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'body' => $request->input('body')
         ]);
-
-        return redirect()->route('contactus')->with('success', 'お問い合わせが送信されました。ありがとうございます！');
+        
+        return view('contacts.thanks', [
+            'email' => $request->input('email'),
+            'category' => $request->input('category'),
+            'body' => $request->input('body')
+        ]);
     }
 }

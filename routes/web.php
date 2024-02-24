@@ -37,7 +37,11 @@ Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
-Route::post('/contactus', [ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/contactus', [ContactController::class, 'submit'])->name('contactus.submit');
+
+Route::get('/contacts/thanks', function () {
+    return view('contacts.thanks');
+})->name('contacts.thanks');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
