@@ -21,7 +21,9 @@ class Post extends Model
         'content',
         'is_public',
         'user_id',
-        
+        'image_path_1',
+        'image_path_2',
+        'image_path_3',
     ];
     
     // place_visited_$i と impressions_$i を追加
