@@ -78,14 +78,14 @@ class PostController extends Controller
         $imagePaths = [];
         for ($i = 1; $i <= 3; $i++) {
             if ($request->hasFile("image_$i")) {
+                // 「/storage/app/public/img」配下に保存される
                 $path = $request->file("image_$i")->store('public/img');
-                $imagePaths["image_path_$i"] = $path;
+                $imagePaths["image_path_$i"] = Storage::url($path);
             }
         }
         
         // 画像のパスをバリデート済みデータにマージ
         $validatedData = array_merge($validatedData, $imagePaths);
-        
         // Postモデルのインスタンスを作成してデータを保存
         $post = Post::create($validatedData);
         
