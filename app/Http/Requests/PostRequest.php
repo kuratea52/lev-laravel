@@ -17,6 +17,9 @@ class PostRequest extends FormRequest
             'stay_duration' => 'required|string|max:255',
             'content' => 'required|string',
             'is_public' => 'required|boolean',
+            'image_path_1' => 'nullable|string|max:255',
+            'image_path_2' => 'nullable|string|max:255',
+            'image_path_3' => 'nullable|string|max:255',
         ];
     
         for ($i = 1; $i <= 20; $i++) {

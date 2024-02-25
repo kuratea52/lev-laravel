@@ -4,7 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\InquiryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -37,7 +37,7 @@ Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
 
-Route::post('/contactus', [ContactController::class, 'submit'])->name('contactus.submit');
+Route::post('/contactus', [InquiryController::class, 'submit'])->name('contactus.submit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

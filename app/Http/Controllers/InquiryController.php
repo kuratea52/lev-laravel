@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Inquiry;
 use App\Http\Requests\InquiryRequest;
 
-class ContactController extends Controller
+class InquiryController extends Controller
 {
     public function submit(InquiryRequest $request)
     {
