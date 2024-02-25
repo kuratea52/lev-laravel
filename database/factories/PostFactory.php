@@ -14,7 +14,7 @@ class PostFactory extends Factory
     public function definition()
     {
         $data = [
-            'user_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 30),
             'region' => $this->faker->randomElement(['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州', '沖縄']),
             'season' => $this->faker->randomElement(['春', '夏', '秋', '冬']),
             'participants' => $this->faker->randomElement(['１人', '２人', '３～５人', '６人～']),
