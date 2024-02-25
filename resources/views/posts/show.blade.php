@@ -14,6 +14,13 @@
                 <p><strong>参加者数:</strong> {{ $post->participants }}</p>
                 <p><strong>予算:</strong> {{ $post->budget }}</p>
                 <p><strong>滞在期間:</strong> {{ $post->stay_duration }}</p>
+                <div class="image-section grid grid-cols-3 gap-4">
+                    @for ($i = 1; $i <= 3; $i++)
+                        @if (!empty($post["image_path_$i"]))
+                            <img src="{{ asset($post["image_path_$i"]) }}" alt="Image {{ $i }}">
+                        @endif
+                    @endfor
+                </div>
                 @auth
                     @if (auth()->user()->id === $post->user_id)
                         <p><strong>公開:</strong> {{ $post->is_public == 1 ? 'はい' : 'いいえ' }}</p>
