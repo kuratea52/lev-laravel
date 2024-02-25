@@ -26,6 +26,9 @@ class PostFactory extends Factory
             'likes' => $this->faker->numberBetween(0, 100),
             'created_at' => now(),
             'updated_at' => now(),
+            'image_path_1' => $this->faker->imageUrl(),
+            'image_path_2' => $this->faker->imageUrl(),
+            'image_path_3' => $this->faker->imageUrl(),
         ];
         
         // 20個の場所と感想を追加
