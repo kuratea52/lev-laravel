@@ -71,6 +71,20 @@
                 <textarea id="content" name="content" rows="5" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
             </div>
             
+            <!-- Image Upload -->
+            <div class="mt-4">
+                <label for="image_1" class="block font-medium text-gray-700">画像１</label>
+                <input id="image_1" type="file" name="image_1" accept="image/*" class="block mt-1 w-full" />
+            </div>
+            <div class="mt-4">
+                <label for="image_2" class="block font-medium text-gray-700">画像２</label>
+                <input id="image_2" type="file" name="image_2" accept="image/*" class="block mt-1 w-full" />
+            </div>
+            <div class="mt-4">
+                <label for="image_3" class="block font-medium text-gray-700">画像３</label>
+                <input id="image_3" type="file" name="image_3" accept="image/*" class="block mt-1 w-full" />
+            </div>
+            
             <!-- 公開可否 -->
             <div class="mt-4">
                 <label for="is_public" class="block font-medium text-gray-700">公開可否</label>
