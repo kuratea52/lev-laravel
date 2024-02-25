@@ -79,7 +79,7 @@ class PostController extends Controller
         for ($i = 1; $i <= 3; $i++) {
             if ($request->hasFile("image_$i")) {
                 $path = $request->file("image_$i")->store('public/img');
-                $imagePaths["image_path_$i"] = Storage::url($path);
+                $imagePaths["image_path_$i"] = $path;
             }
         }
         
