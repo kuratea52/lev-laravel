@@ -72,6 +72,22 @@
                 <textarea id="content" name="content" rows="5" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>{{ $post->content }}</textarea>
             </div>
             
+            <!-- Image Upload -->
+            @for ($i = 1; $i <= 3; $i++)
+                <div class="mt-4">
+                    <label for="image_{{ $i }}" class="block font-medium text-gray-700">画像{{ $i }}</label>
+                    @if (!empty($post->{"image_path_$i"}))
+                        <div class="mt-2">
+                            <img src="{{ asset($post->{"image_path_$i"}) }}" alt="Image {{ $i }}" class="max-w-sm">
+                            <label class="block font-medium text-gray-700">
+                                <input type="checkbox" name="delete_image_{{ $i }}" value="1"> 上記画像を削除
+                            </label>
+                        </div>
+                    @endif
+                    <input id="image_{{ $i }}" type="file" name="change_image_{{ $i }}" accept="image/*" class="block mt-1 w-full" />
+                </div>
+            @endfor
+            
             <!-- 公開可否 -->
             <div class="mt-4">
                 <label for="is_public" class="block font-medium text-gray-700">公開可否</label>
