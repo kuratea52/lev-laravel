@@ -70,7 +70,7 @@ class PostController extends Controller
     {
         // バリデーション済みのデータを取得
         $validatedData = $request->validated();
-        
+
         // ログインユーザーのIDを設定
         $validatedData['user_id'] = auth()->id();
         
@@ -99,7 +99,30 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
-        $post->update($request->validated());
+        // バリデーション済みのデータを取得
+        $validatedData = $request->validated();
+
+        // 画像の削除処理
+        for ($i = 1; $i <= 3; $i++) {
+            if ($request->has("delete_image_$i")) {
+                Storage::delete($post->{"image_path_$i"});
+                $post->{"image_path_$i"} = null;
+            }
+        }
+        
+        // 画像の変更処理
+        $imagePaths = [];
+        for ($i = 1; $i <= 3; $i++) {
+            // 新しい画像がアップロードされた場合の処理
+            if ($request->hasFile("change_image_$i")) {
+                $path = $request->file("change_image_$i")->store('public/img');
+                dd($path);
+                $imagePaths["image_path_$i"] = Storage::url($path);
+            }
+        }
+        
+        $dataToUpdate = array_merge($validatedData, $imagePaths);
+        $post->update($dataToUpdate);
         
         return redirect()->route('posts.show', $post->id);
     }
