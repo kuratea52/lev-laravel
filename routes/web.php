@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\InquiryController;
 use Illuminate\Support\Facades\Route;
 
