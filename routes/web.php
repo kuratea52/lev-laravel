@@ -33,6 +33,8 @@ Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.d
 
 Route::post('/posts/{post}', [LikeController::class, 'store'])->name('posts.like');
 
+Route::post('/posts/{post}', [CommentController::class, 'store'])->name('posts.comment');
+
 Route::get('/contactus', function () {
     return view('contactus');
 })->name('contactus');
