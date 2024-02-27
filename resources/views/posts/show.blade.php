@@ -71,10 +71,27 @@
                         <button id="likeButton" type="submit" class="text-blue-500 hover:underline">いいね</button>
                         <!--<button id="unlikeButton" hidden type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>-->
                     </form>
-                    <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
+                    <!-- コメント機能の追加 -->
+                    <form method="POST" action="{{ route('posts.comment', $post->id) }}">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <textarea name="content" class="w-full px-3 py-2 border rounded-lg" placeholder="コメントを入力してください"></textarea>
+                        <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コメントする</button>
+                    </form>
                 </div>
                 @endif
             @endauth
+            
+            <div class="comments mt-4">
+                <h3 class="text-xl font-semibold mb-2">コメント一覧</h3>
+                @foreach ($post->comments as $comment)
+                    <div class="comment">
+                        <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
+                        <p><strong>内容:</strong> {{ $comment->content }}</p>
+                        <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
+                    </div>
+                @endforeach
+            </div>
         </div>
         @if ($searchKeyword) <!-- 検索結果からの遷移の場合のみ表示 -->
         <div class="footer text-center mt-4">

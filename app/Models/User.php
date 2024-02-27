@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -35,5 +36,11 @@ class User extends Authenticatable
                     ->as('like') // リレーション名を 'like' に変更
                     ->using(Like::class) // 中間テーブルのモデルを指定
                     ->withUnique(['user_id', 'post_id']); // ユニーク制約を追加
+    }
+    
+    // コメントとのリレーション
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }
