@@ -4,25 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
         // バリデーション
-        $request->validate([
-            'content' => 'required|string',
-            'post_id' => 'required|exists:posts,id',
-        ]);
+        $validatedData = $request->validated();
 
         // コメントをデータベースに保存
-        Comment::create([
-            'content' => $request->input('content'),
-            'post_id' => $request->input('post_id'),
-            'user_id' => auth()->user()->id, // ログインユーザーのIDを取得
+        $comment = Comment::create([
+            'content' => $validatedData['content'],
+            'post_id' => $validatedData['post_id'],
+            'user_id' => auth()->user()->id,
         ]);
 
-        // リダイレクトまたはJSONレスポンスなど、適切な応答を返す
-        return redirect()->back()->with('success', 'コメントが投稿されました');
+        return redirect()->route('posts.show', $post->id);
     }
 }
