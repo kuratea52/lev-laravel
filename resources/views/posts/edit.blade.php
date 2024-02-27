@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="container mx-auto my-8">
-        <form method="POST" action="{{ route('posts.update', $post->id) }}" class="max-w-2xl mx-auto">
+        <form method="POST" action="{{ route('posts.update', $post->id) }}" class="max-w-2xl mx-auto" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             
