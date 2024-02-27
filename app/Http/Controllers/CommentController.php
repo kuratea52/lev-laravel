@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Post;
 use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
-    public function store(CommentRequest $request)
+    public function store(CommentRequest $request, Post $post)
     {
         // バリデーション
         $validatedData = $request->validated();
