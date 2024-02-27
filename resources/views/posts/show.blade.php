@@ -71,7 +71,13 @@
                         <button id="likeButton" type="submit" class="text-blue-500 hover:underline">いいね</button>
                         <!--<button id="unlikeButton" hidden type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>-->
                     </form>
-                    <!-- コメント機能の追加（コメント機能が実装されていればここに追加する） -->
+                    <!-- コメント機能の追加 -->
+                    <form method="POST" action="{{ route('comments.store') }}">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <textarea name="content" class="w-full px-3 py-2 border rounded-lg" placeholder="コメントを入力してください"></textarea>
+                        <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コメントする</button>
+                    </form>
                 </div>
                 @endif
             @endauth
