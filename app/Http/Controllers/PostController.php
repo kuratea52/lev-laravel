@@ -99,6 +99,10 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
+        // dd($request->all());
+        // $i = 1;
+        // dd($request->hasFile("change_image_$i"));
+        
         // バリデーション済みのデータを取得
         $validatedData = $request->validated();
 
@@ -116,7 +120,7 @@ class PostController extends Controller
             // 新しい画像がアップロードされた場合の処理
             if ($request->hasFile("change_image_$i")) {
                 $path = $request->file("change_image_$i")->store('public/img');
-                dd($path);
+                // dd($path);
                 $imagePaths["image_path_$i"] = Storage::url($path);
             }
         }
