@@ -72,7 +72,7 @@
                         <!--<button id="unlikeButton" hidden type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>-->
                     </form>
                     <!-- コメント機能の追加 -->
-                    <form method="POST" action="{{ route('posts.comment') }}">
+                    <form method="POST" action="{{ route('posts.comment', $post->id) }}">
                         @csrf
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
                         <textarea name="content" class="w-full px-3 py-2 border rounded-lg" placeholder="コメントを入力してください"></textarea>
