@@ -81,6 +81,17 @@
                 </div>
                 @endif
             @endauth
+            
+            <div class="comments mt-4">
+                <h3 class="text-xl font-semibold mb-2">コメント一覧</h3>
+                @foreach ($post->comments as $comment)
+                    <div class="comment">
+                        <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
+                        <p><strong>内容:</strong> {{ $comment->content }}</p>
+                        <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
+                    </div>
+                @endforeach
+            </div>
         </div>
         @if ($searchKeyword) <!-- 検索結果からの遷移の場合のみ表示 -->
         <div class="footer text-center mt-4">
