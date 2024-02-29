@@ -68,8 +68,8 @@
                     <!-- いいね機能の追加 -->
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
                         @csrf
-                        <button id="likeButton" type="submit" class="text-blue-500 hover:underline">いいね</button>
-                        <!--<button id="unlikeButton" hidden type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>-->
+                        <button id="likeButton" type="submit" class="text-blue-500 hover:underline" data-post-id="{{ $post->id }}">いいね</button>
+                        <button hidden id="unlikeButton" type="submit" class="text-blue-500 hover:underline" data-post-id="{{ $post->id }}">いいね取り消し</button>
                     </form>
                     <!-- コメント機能の追加 -->
                     <form method="POST" action="{{ route('posts.comment', $post->id) }}">
@@ -104,5 +104,6 @@
     </div>
     
     @vite('resources/js/deleteConfirmation.js')
-    @vite('resources/js/like.js')
+    @vite('resources/js/like1.js')
+    @vite('resources/js/like2.js')
 </x-app-layout>

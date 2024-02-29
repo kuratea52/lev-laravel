@@ -32,7 +32,11 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.upda
 
 Route::delete('/posts/{post}', [PostController::class, 'delete'])->name('posts.delete');
 
-Route::post('/posts/{post}/like', [LikeController::class, 'store'])->name('posts.like');
+Route::get('/posts/{post}/checkLike', [LikeController::class, 'checkLike'])->name('posts.checkLike');
+
+Route::post('/posts/{post}/like', [LikeController::class, 'like'])->name('posts.like');
+
+Route::post('/posts/{post}/unlike', [LikeController::class, 'unlike'])->name('posts.unlike');
 
 Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('posts.comment');
 
