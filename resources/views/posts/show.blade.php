@@ -69,7 +69,10 @@
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
                         @csrf
                         <button id="likeButton" type="submit" class="text-blue-500 hover:underline" data-post-id="{{ $post->id }}">いいね</button>
-                        <button hidden id="unlikeButton" type="submit" class="text-blue-500 hover:underline" data-post-id="{{ $post->id }}">いいね取り消し</button>
+                    </form>
+                    <form id="unlikeForm" method="POST" action="{{ route('posts.unlike', $post->id) }}">
+                        @csrf
+                        <button hidden id="unlikeButton" type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>
                     </form>
                     <!-- コメント機能の追加 -->
                     <form method="POST" action="{{ route('posts.comment', $post->id) }}">

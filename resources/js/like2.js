@@ -7,10 +7,9 @@
 unlikeButton.addEventListener('click', async function(event) {
     event.preventDefault();
     
-    const postId = unlikeButton.dataset.postId; // データ属性から投稿IDを取得
-    const url = `/posts/${postId}/unlike`; // いいね取り消しのAPIエンドポイントのURLを構築
+    const unlikeForm = document.getElementById('unlikeForm');
     try {
-        const response = await fetch(url, {
+        const response = await fetch(unlikeForm.action, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
