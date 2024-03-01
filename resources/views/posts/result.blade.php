@@ -1,3 +1,5 @@
+@section('title', '「' . $keyword . '」の検索結果')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

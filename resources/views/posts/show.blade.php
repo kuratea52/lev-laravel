@@ -1,7 +1,9 @@
+@section('title', '旅日記「' . $post->title . '」')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $post->title }}の詳細
+            旅日記「{{ $post->title }}」の詳細
         </h2>
     </x-slot>
     

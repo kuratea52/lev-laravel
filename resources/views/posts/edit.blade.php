@@ -1,7 +1,9 @@
+@section('title', '投稿の修正')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('投稿を修正する') }}
+            {{ __('旅日記を修正する') }}
         </h2>
     </x-slot>
 

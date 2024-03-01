@@ -48,7 +48,7 @@ class PostController extends Controller
                              ->orWhere('stay_duration', 'like', '%' . $keyword . '%')
                              ->paginate(9);
                              
-        return view('posts.result', compact('searchResults'));
+        return view('posts.result', compact('searchResults', 'keyword'));
     }
     
     public function show(Post $post)

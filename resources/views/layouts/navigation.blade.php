@@ -15,7 +15,7 @@
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @auth
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('ホーム') }}
                         </x-nav-link>
                     @endauth
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
@@ -48,7 +48,7 @@
                         <!-- Dropdown Content -->
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                {{ __('アカウント設定') }}
                             </x-dropdown-link>
     
                             <!-- Authentication -->
@@ -57,7 +57,7 @@
                                 <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('ログアウト') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
