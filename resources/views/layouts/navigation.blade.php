@@ -19,7 +19,7 @@
                         </x-nav-link>
                     @endauth
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                        {{ __('みんなの旅日記') }}
+                        {{ __('トップ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('newpost')" :active="request()->routeIs('newpost')">
                         {{ __('旅日記を投稿する') }}
