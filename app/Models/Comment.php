@@ -20,4 +20,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public static function getPaginatedComments($postId, $perPage = 5)
+    {
+        return static::where('post_id', $postId)->paginate($perPage);
+    }
 }
