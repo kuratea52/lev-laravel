@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -62,8 +63,12 @@ class PostController extends Controller
         } else {
             $searchKeyword = null;
         }
+        
+        // コメントをページネーションして取得
+        $comments = Comment::getPaginatedComments($post->id);
+        dd($comments);
     
-        return view('posts.show', compact('post', 'isFromSearch', 'searchKeyword'));
+        return view('posts.show', compact('post', 'isFromSearch', 'searchKeyword', 'comments'));
     }
     
     public function store(PostRequest $request)
