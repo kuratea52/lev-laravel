@@ -2,7 +2,7 @@
 
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('ご登録頂いたメールアドレスを入力してください。パスワードリセットリンクをお送りいたします。') }}
+        {{ __('ご登録いただいたメールアドレスを入力してください。パスワードリセットのリンクをお送りいたします。') }}
     </div>
 
     <!-- Session Status -->
@@ -20,7 +20,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
-                {{ __('パスワードリセットリンクを送信') }}
+                {{ __('パスワードリセットのリンクを送信') }}
             </x-primary-button>
         </div>
     </form>
