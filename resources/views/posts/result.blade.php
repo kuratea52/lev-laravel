@@ -17,21 +17,25 @@
             <!-- 検索結果の表示 -->
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 @foreach($searchResults as $post)
-                    <a href="{{ route('posts.show', $post->id) }}" class="bg-white shadow-sm rounded-lg p-4 hover:shadow-md transition duration-300">
-                        <h3 class="text-lg font-semibold mb-2">
-                            {{ $post->title }}
-                        </h3>
-                        <p class="text-gray-600 mb-4">{{ Str::limit($post->content, 200) }}</p>
-                        <div class="flex justify-between">
-                            <span class="text-gray-500">{{ $post->created_at->diffForHumans() }}</span>
-                            <span class="text-gray-500">{{ $post->likes }} Likes</span>
+                    <a href="{{ route('posts.show', $post->id) }}" class="block relative bg-white rounded-lg p-4 hover:shadow-md transition duration-300"
+                        style="background-image: url('{{ asset($post->image_path_1) }}');
+                               background-size: cover;
+                               background-position: center;
+                               box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+                    >
+                        <div class="absolute inset-0 bg-black opacity-25 rounded-lg backdrop-filter backdrop-blur-lg"></div>
+                        <h3 class="text-xl mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ $post->title }}</h3>
+                        <p class="text-gray-900 mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ Str::limit($post->content, 200) }}</p>
+                        <div class="flex justify-between font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">
+                            <span class="text-gray-900">{{ $post->created_at->diffForHumans() }}</span>
+                            <span class="text-gray-900">{{ $post->likes }} Likes</span>
                         </div>
-                        <div class="mt-2">
-                            <span class="text-gray-500">地域: {{ $post->region }}</span><br>
-                            <span class="text-gray-500">シーズン: {{ $post->season }}</span><br>
-                            <span class="text-gray-500">参加人数: {{ $post->participants }}</span><br>
-                            <span class="text-gray-500">予算: {{ $post->budget }}</span><br>
-                            <span class="text-gray-500">滞在期間: {{ $post->stay_duration }}</span>
+                        <div class="mt-2 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">
+                            <span class="text-gray-900">地域: {{ $post->region }}</span><br>
+                            <span class="text-gray-900">シーズン: {{ $post->season }}</span><br>
+                            <span class="text-gray-900">参加人数: {{ $post->participants }}</span><br>
+                            <span class="text-gray-900">予算: {{ $post->budget }}</span><br>
+                            <span class="text-gray-900">滞在期間: {{ $post->stay_duration }}</span>
                         </div>
                     </a>
                 @endforeach
