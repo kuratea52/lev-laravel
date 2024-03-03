@@ -1,11 +1,13 @@
+@section('title', 'メールアドレス認証のご案内')
+
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        {{ __('みんなの旅日記へのご登録ありがとうございます。ご入力いただいたメールアドレスへリンクを送信しました。届いていない場合は、以下の送信ボタンから再送できます。') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')
         <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+            {{ __('入力されたメールアドレスに、新しい認証リンクが送信されました。') }}
         </div>
     @endif
 
@@ -15,7 +17,7 @@
 
             <div>
                 <x-primary-button>
-                    {{ __('Resend Verification Email') }}
+                    {{ __('認証メールの再送') }}
                 </x-primary-button>
             </div>
         </form>
@@ -24,7 +26,7 @@
             @csrf
 
             <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
+                {{ __('ログアウト') }}
             </button>
         </form>
     </div>
