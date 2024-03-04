@@ -65,7 +65,9 @@ class PostController extends Controller
         }
         
         // コメントをページネーションして取得
-        $comments = Comment::getPaginatedComments($post->id);
+        $comments = $post->comments()->paginate(5);
+        // $comments = Comment::where('post_id', $post->id)->paginate(5);
+        // dd($comments);
 
         return view('posts.show', compact('post', 'isFromSearch', 'searchKeyword', 'comments'));
     }

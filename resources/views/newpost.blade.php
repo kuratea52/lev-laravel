@@ -8,7 +8,7 @@
     </x-slot>
 
     <div class="container mx-auto my-8">
-        <form method="POST" action="{{ route('posts.store') }}" class="max-w-2xl mx-auto" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('posts.store') }}" class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg max-w-2xl mx-auto" enctype="multipart/form-data">
             @csrf
             
             <!-- Title -->
@@ -120,7 +120,7 @@
 
             <!-- 送信ボタン -->
             <div class="flex items-center justify-end mt-4">
-                <button id="submitBtn">
+                <button id="submitBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     {{ __('投稿する') }}
                 </button>
             </div>

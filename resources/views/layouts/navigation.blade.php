@@ -12,23 +12,19 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @auth
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('ホーム') }}
-                        </x-nav-link>
-                    @endauth
-                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-indigo-600 hover:text-indigo-800">
+                        {{ __('ホーム') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')" class="text-purple-600 hover:text-purple-800">
                         {{ __('トップ') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('newpost')" :active="request()->routeIs('newpost')">
+                    <x-nav-link :href="route('newpost')" :active="request()->routeIs('newpost')" class="text-pink-600 hover:text-pink-800">
                         {{ __('旅日記を投稿する') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')">
+                    <x-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')" class="text-blue-600 hover:text-blue-800">
                         {{ __('FAQ & お問い合わせ') }}
                     </x-nav-link>
                 </div>
-            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">

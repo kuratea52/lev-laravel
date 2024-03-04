@@ -18,7 +18,7 @@
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 @foreach($searchResults as $post)
                     <a href="{{ route('posts.show', $post->id) }}" class="block relative bg-white rounded-lg p-4 hover:shadow-md transition duration-300"
-                        style="background-image: url('{{ asset($post->image_path_1) }}');
+                        style="background-image: url('{{ $post->image_path_1 ? asset($post->image_path_1) : asset('storage/img/no_image.jpeg') }}');
                                background-size: cover;
                                background-position: center;
                                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
