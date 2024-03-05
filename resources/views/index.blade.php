@@ -94,6 +94,8 @@
             @endforeach
         </ul>
     </div>
+    
+    <x-footer />
 
     @vite('resources/js/search.js')
 </x-app-layout>
