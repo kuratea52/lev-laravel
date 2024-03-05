@@ -8,7 +8,7 @@
     </x-slot>
 
     <div class="container mx-auto my-8">
-        <form method="POST" action="{{ route('posts.update', $post->id) }}" class="max-w-2xl mx-auto" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('posts.update', $post->id) }}" class="post-details bg-white shadow-md sm:rounded-lg px-8 pt-6 pb-8 mb-4 max-w-2xl mx-auto" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             
@@ -124,7 +124,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <button type="submit">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     {{ __('修正する') }}
                 </button>
             </div>

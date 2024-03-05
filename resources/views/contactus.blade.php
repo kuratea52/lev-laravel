@@ -44,7 +44,7 @@
                             <textarea name="body" id="body" rows="4" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required></textarea>
                         </div>
                         <div class="mt-4">
-                            <button id="submitButton" type="submit"class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">送信する</button>
+                            <button id="submitButton" type="submit"class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 font-bold">送信する</button>
                         </div>
                     </form>
                 </div>

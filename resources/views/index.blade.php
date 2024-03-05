@@ -15,7 +15,7 @@
     <!--    <link rel="stylesheet" href="{{-- asset('../css/index.css') --}}">-->
     <!--</head>-->
 
-    <div class="container mx-auto my-8">
+    <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
         <!-- 検索バー -->
         <div class="mb-8 flex justify-end">
             <input type="text" id="searchInput" class="border-gray-300 border rounded-md p-2" placeholder="Search...">
@@ -94,6 +94,8 @@
             @endforeach
         </ul>
     </div>
+    
+    <x-footer />
 
     @vite('resources/js/search.js')
 </x-app-layout>
