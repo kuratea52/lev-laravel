@@ -8,7 +8,7 @@
     </x-slot>
 
     <div class="container mx-auto my-8">
-        <form method="POST" action="{{ route('posts.store') }}" class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg max-w-2xl mx-auto" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('posts.store') }}" class="post-details bg-white shadow-md sm:rounded-lg px-8 pt-6 pb-8 mb-4 max-w-2xl mx-auto" enctype="multipart/form-data">
             @csrf
             
             <!-- Title -->
