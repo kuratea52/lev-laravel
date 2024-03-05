@@ -89,7 +89,7 @@
             
             <div class="comments mt-4">
                 <h3 class="text-xl font-semibold mb-2">コメント一覧</h3>
-                @foreach ($post->comments as $comment)
+                @foreach ($comments as $comment)
                     <div class="comment">
                         <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
                         <p><strong>内容:</strong> {{ $comment->content }}</p>
