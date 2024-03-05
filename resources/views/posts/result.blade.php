@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
     
-    <div class="container mx-auto my-8">
+    <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
         <!-- トップページへのリンク -->
         <div class="mb-4">
             <a href="{{ route('index') }}" class="text-blue-500 hover:underline">トップページへ戻る</a>
