@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/addField.js',
+                'resources/js/commentPagination.js',
                 'resources/js/deleteConfirmation.js',
                 'resources/js/like1.js',
                 'resources/js/like2.js',

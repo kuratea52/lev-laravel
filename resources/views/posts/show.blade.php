@@ -88,7 +88,7 @@
             @endauth
             
             <div class="comments mt-4">
-                <h3 class="text-xl font-semibold mb-2">コメント一覧</h3>
+                <h3 id="comment-list" class="text-xl font-semibold mb-2">コメント一覧</h3>
                 @foreach ($comments as $comment)
                     <div class="comment">
                         <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
@@ -113,4 +113,5 @@
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
     @vite('resources/js/like2.js')
+    @vite('resources/js/commentPagination.js')
 </x-app-layout>
