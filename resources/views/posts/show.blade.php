@@ -96,7 +96,8 @@
                         <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
                     </div>
                 @endforeach
-                {{ $comments->links() }}
+                <!-- ページネーション -->
+                @include('layouts.showPagination', ['paginator' => $comments])
             </div>
         </div>
         @if ($searchKeyword) <!-- 検索結果からの遷移の場合のみ表示 -->
