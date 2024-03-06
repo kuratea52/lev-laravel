@@ -1,84 +1,31 @@
 <footer class="text-gray-600 body-font bg-white">
-  <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+  <div class="container px-5 py-10 mx-auto flex justify-center">
+    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left mt-10">
       <img src="{{ asset('storage/img/logo.png') }}">
       <p class="mt-2 text-sm text-gray-500">旅の思い出、みんなの共有スペース</p>
     </div>
-    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-        <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-          </li>
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-          </li>
-        </nav>
-      </div>
+  </div>
+  <div class="flex-grow flex justify-center text-center">
+    <div class="lg:w-1/4 md:w-1/2 w-full px-4 text-center">
+      <nav class="list-none mb-5 mt-10 flex justify-between">
+        <li>
+          <a class="text-gray-600 hover:text-gray-800">このサイトについて</a>
+        </li>
+        <li>
+          <a class="text-gray-600 hover:text-gray-800">利用規約</a>
+        </li>
+        <li>
+          <a class="text-gray-600 hover:text-gray-800">お問い合わせ</a>
+        </li>
+      </nav>
     </div>
   </div>
   <div class="bg-gray-100">
     <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-gray-500 text-sm text-center sm:text-left">© 2024 みんなの旅日記 —
-        <a href="https://github.com/kuratea52" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@kuratea52</a>
+      <p class="text-gray-500 text-sm text-center sm:text-left">
+        Copyright©
+        <a href="https://github.com/kuratea52" rel="noopener noreferrer" class="text-gray-500 ml-1" target="_blank">kuratea52</a>
+        All Rights Reserved.
       </p>
       <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a href="https://twitter.com/yasaimogu" class="ml-3 text-gray-500">
