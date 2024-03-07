@@ -56,7 +56,7 @@ class PostController extends Controller
     {
         // 検索結果からの遷移かどうかを判定するための変数
         $isFromSearch = session()->has('search_keyword');
-        
+
         // 検索結果からの遷移の場合は、セッションから検索キーワードを削除しない
         if ($isFromSearch) {
             $searchKeyword = session('search_keyword');

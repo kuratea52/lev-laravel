@@ -1,21 +1,28 @@
-<footer class="text-gray-600 body-font bg-white">
-  <div class="container px-5 py-10 mx-auto flex justify-center">
+<footer class="text-gray-600 body-font bg-white relative">
+  <div class="container px-5 py-1 mx-auto flex justify-center">
     <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left mt-10">
-      <img src="{{ asset('storage/img/logo.png') }}">
-      <p class="mt-2 text-sm text-gray-500">旅の思い出、みんなの共有スペース</p>
+      <a href="{{ route('index') }}">
+        <img src="{{ asset('storage/img/logo.png') }}">
+        <p class="mt-2 text-sm text-gray-500">旅の思い出、みんなの共有スペース</p>
+      </a>
     </div>
   </div>
+  <a href="#" class="to-top rounded-full bg-gray-300 p-2 absolute bottom-20 right-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/>
+    </svg>
+  </a>
   <div class="flex-grow flex justify-center text-center">
     <div class="lg:w-1/4 md:w-1/2 w-full px-4 text-center">
       <nav class="list-none mb-5 mt-10 flex justify-between">
         <li>
-          <a class="text-gray-600 hover:text-gray-800">このサイトについて</a>
+          <a href="{{ route('aboutus') }}" class="text-gray-600 hover:text-gray-800">このサイトについて</a>
         </li>
         <li>
-          <a class="text-gray-600 hover:text-gray-800">利用規約</a>
+          <a href="{{ route('terms') }}" class="text-gray-600 hover:text-gray-800">利用規約</a>
         </li>
         <li>
-          <a class="text-gray-600 hover:text-gray-800">お問い合わせ</a>
+          <a href="{{ route('contactus') }}" class="text-gray-600 hover:text-gray-800">お問い合わせ</a>
         </li>
       </nav>
     </div>

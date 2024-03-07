@@ -1,10 +1,16 @@
 // ページネーションリンクのクリックイベントを監視
 document.addEventListener("DOMContentLoaded", function() {
-    // コメント一覧の要素を取得
-    const commentListElement = document.getElementById('comment-list');
-    // コメント一覧の要素が存在する場合、その要素までスクロールする
-    if (commentListElement) {
-        const yOffset = commentListElement.getBoundingClientRect().top + window.pageYOffset;
-        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+    // ページが show.blade.php から遷移された場合は下にスクロールする
+    const isFromShow = sessionStorage.getItem('isFromShow') === 'true';
+
+    if (isFromShow) {
+        // ページが show.blade.php から遷移された場合は下にスクロールする
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
+});
+
+// ページ遷移前のURLをセッションストレージに保存
+window.addEventListener('beforeunload', function() {
+    const prevUrl = window.location.href;
+    sessionStorage.setItem('isFromShow', prevUrl.includes('posts'));
 });
