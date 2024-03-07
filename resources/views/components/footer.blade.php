@@ -9,10 +9,10 @@
     <div class="lg:w-1/4 md:w-1/2 w-full px-4 text-center">
       <nav class="list-none mb-5 mt-10 flex justify-between">
         <li>
-          <a class="text-gray-600 hover:text-gray-800">このサイトについて</a>
+          <a href="{{ route('aboutus') }}" class="text-gray-600 hover:text-gray-800">このサイトについて</a>
         </li>
         <li>
-          <a class="text-gray-600 hover:text-gray-800">利用規約</a>
+          <a href="{{ route('') }}" class="text-gray-600 hover:text-gray-800">利用規約</a>
         </li>
         <li>
           <a href="{{ route('contactus') }}" class="text-gray-600 hover:text-gray-800">お問い合わせ</a>
