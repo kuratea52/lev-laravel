@@ -12,7 +12,7 @@
           <a href="{{ route('aboutus') }}" class="text-gray-600 hover:text-gray-800">このサイトについて</a>
         </li>
         <li>
-          <a href="{{ route('') }}" class="text-gray-600 hover:text-gray-800">利用規約</a>
+          <a href="{{ route('terms') }}" class="text-gray-600 hover:text-gray-800">利用規約</a>
         </li>
         <li>
           <a href="{{ route('contactus') }}" class="text-gray-600 hover:text-gray-800">お問い合わせ</a>
