@@ -67,7 +67,7 @@
                 </div>
                 @else <!-- ログインユーザーが投稿者でない場合 -->
                 <div class="text-center mt-4">
-                    <!-- いいね機能の追加 -->
+                    <!-- いいね機能 -->
                     <form id="likeForm" method="POST" action="{{ route('posts.like', $post->id) }}">
                         @csrf
                         <button id="likeButton" type="submit" class="text-blue-500 hover:underline" data-post-id="{{ $post->id }}">いいね</button>
@@ -76,7 +76,7 @@
                         @csrf
                         <button hidden id="unlikeButton" type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>
                     </form>
-                    <!-- コメント機能の追加 -->
+                    <!-- コメント機能 -->
                     <form method="POST" action="{{ route('posts.comment', $post->id) }}">
                         @csrf
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -87,17 +87,20 @@
                 @endif
             @endauth
             
-            <div class="comments mt-4">
+            <div class="comments mt-4" id="comments">
                 <h3 id="comment-list" class="text-xl font-semibold mb-2">コメント一覧</h3>
-                @foreach ($comments as $comment)
-                    <div class="comment">
-                        <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
-                        <p><strong>内容:</strong> {{ $comment->content }}</p>
-                        <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
-                    </div>
-                @endforeach
-                <!-- ページネーション -->
                 @include('layouts.showPagination', ['paginator' => $comments])
+                @if ($comments->isEmpty())
+                    <p>コメントはまだありません。</p>
+                @else
+                    @foreach ($comments as $comment)
+                        <div class="comment">
+                            <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
+                            <p><strong>内容:</strong> {{ $comment->content }}</p>
+                            <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         @if ($searchKeyword) <!-- 検索結果からの遷移の場合のみ表示 -->
