@@ -131,5 +131,7 @@
         </form>
     </div>
     
+    <x-footer />
+    
     @vite('resources/js/addField.js')
 </x-app-layout>

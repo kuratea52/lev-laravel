@@ -52,5 +52,7 @@
         </div>
     </div>
     
+    <x-footer />
+    
     @vite('resources/js/inquiryConfirmation.js')
 </x-app-layout>

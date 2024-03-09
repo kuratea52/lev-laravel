@@ -45,4 +45,7 @@
         <!-- ページネーション -->
         @include('layouts.resultPagination', ['paginator' => $searchResults])
     </div>
+    
+    <x-footer />
+    
 </x-app-layout>

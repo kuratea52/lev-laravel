@@ -1,4 +1,4 @@
-<nav aria-label="Page navigation example" class="pagination" id="pagination">
+<nav aria-label="Page navigation example" class="pagination">
     <ul class="pagination flex items-center -space-x-px h-10 text-base justify-start">
         @if ($comments->onFirstPage())
             <li class="pagination opacity-0 pointer-events-none">
@@ -50,17 +50,4 @@
             </li>
         @endif
     </ul>
-    
-    <script>
-        document.getElementById('pagination').addEventListener('click', function(event) {
-            // コメントセクションの要素を取得
-            const commentsElement = document.getElementById('pagination');
-            console.log(commentsElement);
-            // コメントセクションの要素が存在する場合、その要素までスクロールする
-            if (commentsElement) {
-                const yOffset = commentsElement.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top: yOffset, behavior: 'smooth' });
-            }
-        });
-    </script>
 </nav>
