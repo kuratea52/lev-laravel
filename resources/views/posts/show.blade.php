@@ -95,9 +95,11 @@
                 @else
                     @foreach ($comments as $comment)
                         <div class="comment">
-                            <p><strong>投稿者:</strong> {{ $comment->user->name }}</p>
-                            <p><strong>内容:</strong> {{ $comment->content }}</p>
-                            <p><strong>投稿日時:</strong> {{ $comment->created_at }}</p>
+                            <p><strong>{{ $comment->user->name }} /</strong> <strong>{{ $comment->created_at }}</strong></p>
+                            <div id="commentContent" class="comment-content">
+                                <p>{{ mb_substr($comment->content, 0, 50) }}</p>
+                            </div>
+                            <hr class="my-1 border-gray-300 w-1/2">
                         </div>
                     @endforeach
                 @endif
@@ -113,8 +115,22 @@
         </div>
     </div>
     
+    <x-footer />
+    
+    <script>
+        function toggleComment() {
+            var commentContent = document.getElementById("commentContent");
+            if (commentContent.style.display === "none") {
+                commentContent.style.display = "block";
+                event.target.innerText = "閉じる";
+            } else {
+                commentContent.style.display = "none";
+                event.target.innerText = "もっと見る";
+            }
+        }
+    </script>
+    
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
     @vite('resources/js/like2.js')
-    @vite('resources/js/commentPagination.js')
 </x-app-layout>

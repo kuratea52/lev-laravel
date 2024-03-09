@@ -19,11 +19,13 @@
                                     {{ $post->title }}
                                 </a>
                             </li>
-                            <!-- 他の投稿情報も表示する場合はここに追加 -->
                         @endforeach
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    
+    <x-footer />
+    
 </x-app-layout>

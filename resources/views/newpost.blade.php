@@ -127,6 +127,8 @@
         </form>
     </div>
     
+    <x-footer />
+    
     @vite('resources/js/addField.js')
     @vite('resources/js/postConfirmation.js')
 </x-app-layout>
