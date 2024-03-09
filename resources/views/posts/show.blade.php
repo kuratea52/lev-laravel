@@ -116,5 +116,4 @@
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
     @vite('resources/js/like2.js')
-    @vite('resources/js/commentPagination.js')
 </x-app-layout>
