@@ -10,10 +10,6 @@
                 <p>ログインユーザー名: {{ auth()->user()->name }}</p>
             @endauth
     </x-slot>
-    
-    <!--<head>-->
-    <!--    <link rel="stylesheet" href="{{-- asset('../css/index.css') --}}">-->
-    <!--</head>-->
 
     <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
         <!-- 検索バー -->
