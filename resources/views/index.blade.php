@@ -32,23 +32,16 @@
         <h2 class="text-2xl font-semibold mb-2 text-pink-500">春のランキング</h2>
         @include('layouts.spring_ranking', ['springRanking' => $springRanking])
 
-        <!-- ひとり旅の数ランキング -->
+        <!-- ひとり旅のランキング -->
         <div class="mb-4"></div>
         <h2 class="text-2xl font-semibold mb-2 text-green-500">ひとり旅のランキング</h2>
         @include('layouts.one_participant_likes_ranking', ['oneParticipantLikesRanking' => $oneParticipantLikesRanking])
 
         <!-- 予算３万円以内のランキング -->
+        <div class="mb-4"></div>
         <h2 class="text-2xl font-semibold mb-2 text-red-500">予算３万円以内のランキング</h2>
-        <ul class="list-disc pl-6">
-            @foreach($budgetLikesRanking as $post)
-                <li>
-                    <a href="/posts/{{ $post->id }}" class="hover:underline">
-                        {{ $post->title }} - Likes: {{ $post->likes }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-        
+        @include('layouts.budget_likes_ranking', ['budgetLikesRanking' => $budgetLikesRanking])
+
         <!-- 日帰り旅のランキング -->
         <h2 class="text-2xl font-semibold mb-2 text-indigo-500">日帰り旅のランキング</h2>
         <ul class="list-disc pl-6">
