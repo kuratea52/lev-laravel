@@ -33,17 +33,10 @@
         @include('layouts.spring_ranking', ['springRanking' => $springRanking])
 
         <!-- ひとり旅の数ランキング -->
+        <div class="mb-4"></div>
         <h2 class="text-2xl font-semibold mb-2 text-green-500">ひとり旅のランキング</h2>
-        <ul class="list-disc pl-6">
-            @foreach($oneParticipantLikesRanking as $post)
-                <li>
-                    <a href="/posts/{{ $post->id }}" class="hover:underline">
-                        {{ $post->title }} - Likes: {{ $post->likes }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-        
+        @include('layouts.one_participant_likes_ranking', ['oneParticipantLikesRanking' => $oneParticipantLikesRanking])
+
         <!-- 予算３万円以内のランキング -->
         <h2 class="text-2xl font-semibold mb-2 text-red-500">予算３万円以内のランキング</h2>
         <ul class="list-disc pl-6">
