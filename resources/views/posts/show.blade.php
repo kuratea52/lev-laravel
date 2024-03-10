@@ -117,26 +117,10 @@
     </div>
     
     <x-footer />
-    
-    <script>
-        document.getElementById('submitComment').addEventListener('click', function() {
-            var content = document.getElementById('commentContent').value;
-            if (content.trim() === '') {
-                alert('内容が入力されていません。');
-                return;
-            }
-            if (content.length > 101) {
-                alert('コメントは100文字以内で入力してください。');
-                return;
-            }
-            if (confirm('コメントを投稿しますか？')) {
-                document.getElementById('commentForm').submit();
-            }
-        });
-    </script>
 
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
     @vite('resources/js/like2.js')
     @vite('resources/js/commentPagination.js')
+    @vite('resources/js/commentConfirmation.js')
 </x-app-layout>
