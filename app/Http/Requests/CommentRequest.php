@@ -24,7 +24,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required|string|max:50',
+            'content' => 'required|string|max:100',
             'post_id' => 'required|exists:posts,id',
         ];
     }

@@ -77,11 +77,11 @@
                         <button hidden id="unlikeButton" type="submit" class="text-blue-500 hover:underline">いいね取り消し</button>
                     </form>
                     <!-- コメント機能 -->
-                    <form method="POST" action="{{ route('posts.comment', $post->id) }}">
+                    <form id="commentForm" method="POST" action="{{ route('posts.comment', $post->id) }}">
                         @csrf
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
-                        <textarea name="content" class="w-full px-3 py-2 border rounded-lg" placeholder="コメントを入力してください"></textarea>
-                        <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コメントする</button>
+                        <textarea id="commentContent" name="content" class="w-full px-3 py-2 border rounded-lg" placeholder="コメントを入力してください"></textarea>
+                        <button type="button" id="submitComment" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">コメントする</button>
                     </form>
                 </div>
                 @endif
@@ -98,6 +98,7 @@
                             <p><strong>{{ $comment->user->name }} /</strong> <strong>{{ $comment->created_at }}</strong></p>
                             <div id="commentContent" class="comment-content">
                                 <p>{{ mb_substr($comment->content, 0, 50) }}</p>
+                                <p>{{ mb_substr($comment->content, 51, 100) }}</p>
                             </div>
                             <hr class="my-1 border-gray-300 w-1/2">
                         </div>
@@ -116,6 +117,23 @@
     </div>
     
     <x-footer />
+    
+    <script>
+        document.getElementById('submitComment').addEventListener('click', function() {
+            var content = document.getElementById('commentContent').value;
+            if (content.trim() === '') {
+                alert('内容が入力されていません。');
+                return;
+            }
+            if (content.length > 101) {
+                alert('コメントは100文字以内で入力してください。');
+                return;
+            }
+            if (confirm('コメントを投稿しますか？')) {
+                document.getElementById('commentForm').submit();
+            }
+        });
+    </script>
 
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
