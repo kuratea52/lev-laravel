@@ -28,19 +28,12 @@
         @include('layouts.kanto_ranking', ['kantoRanking' => $kantoRanking])
 
         <!-- 春のランキング -->
-        <h2 class="text-2xl font-semibold mb-2 text-green-500">春のランキング</h2>
-        <ul class="list-disc pl-6">
-            @foreach($springRanking as $post)
-                <li>
-                    <a href="/posts/{{ $post->id }}" class="hover:underline">
-                        {{ $post->title }} - Likes: {{ $post->likes }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-        
+        <div class="mb-4"></div>
+        <h2 class="text-2xl font-semibold mb-2 text-pink-500">春のランキング</h2>
+        @include('layouts.spring_ranking', ['springRanking' => $springRanking])
+
         <!-- ひとり旅の数ランキング -->
-        <h2 class="text-2xl font-semibold mb-2 text-purple-500">ひとり旅のランキング</h2>
+        <h2 class="text-2xl font-semibold mb-2 text-green-500">ひとり旅のランキング</h2>
         <ul class="list-disc pl-6">
             @foreach($oneParticipantLikesRanking as $post)
                 <li>
