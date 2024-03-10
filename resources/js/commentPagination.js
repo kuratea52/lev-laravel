@@ -1,14 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('pagination').addEventListener('click', function(event) {
-        // クリックされた要素がページネーション内の要素かどうかを確認
-        if (event.target.closest('.pagination')) {
-            // コメントセクションの要素を取得
-            const commentsElement = document.getElementById('comments');
-            // コメントセクションの要素が存在する場合、その要素までスクロールする
-            if (commentsElement) {
-                const yOffset = commentsElement.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top: yOffset, behavior: 'smooth' });
-            }
-        }
-    });
-});
+// URLに「?page=」が含まれている場合にページ下部までスクロールする
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get('page');
+    if (pageParam) {
+        window.scrollTo({
+            top: document.body.scrollHeight - window.innerHeight - 150,
+            behavior: 'smooth'
+        });
+    }
+};
