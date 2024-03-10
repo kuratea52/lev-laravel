@@ -1,6 +1,6 @@
-<!-- 総合ランキングの表示 -->
-<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mx-auto mb-10">
-    @foreach($totalLikesRanking->take(3) as $post)
+<!-- 関東地方ランキングの表示 -->
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mx-auto">
+    @foreach($kantoRanking->take(3) as $post)
         <a href="{{ route('posts.show', $post->id) }}" class="block relative bg-white rounded-lg p-4 hover:shadow-md transition duration-300"
             style="background-image: url('{{ $post->image_path_1 ? asset($post->image_path_1) : asset('storage/img/no_image.jpeg') }}');
                    background-size: cover;
@@ -23,4 +23,7 @@
             </div>
         </a>
     @endforeach
+</div>
+<div class="text-right mt-2 mb-10">
+    <a href="{{ route('posts.result', ['keyword' => '関東']) }}" class="text-blue-500 hover:underline">関東地方の投稿をもっと見る</a>
 </div>

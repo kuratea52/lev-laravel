@@ -21,19 +21,12 @@
         <!-- 総合ランキング -->
         <h2 class="text-2xl font-semibold mb-2 text-yellow-500">総合ランキング</h2>
         @include('layouts.total_likes_ranking', ['totalLikesRanking' => $totalLikesRanking])
-        
+
         <!-- 関東地方のランキング -->
+        <div class="mb-4"></div>
         <h2 class="text-2xl font-semibold mb-2 text-blue-500">関東地方のランキング</h2>
-        <ul class="list-disc pl-6">
-            @foreach($kantoRanking as $post)
-                <li>
-                    <a href="/posts/{{ $post->id }}" class="hover:underline">
-                        {{ $post->title }} - Likes: {{ $post->likes }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-        
+        @include('layouts.kanto_ranking', ['kantoRanking' => $kantoRanking])
+
         <!-- 春のランキング -->
         <h2 class="text-2xl font-semibold mb-2 text-green-500">春のランキング</h2>
         <ul class="list-disc pl-6">
