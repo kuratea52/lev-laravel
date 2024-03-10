@@ -116,21 +116,9 @@
     </div>
     
     <x-footer />
-    
-    <script>
-        function toggleComment() {
-            var commentContent = document.getElementById("commentContent");
-            if (commentContent.style.display === "none") {
-                commentContent.style.display = "block";
-                event.target.innerText = "閉じる";
-            } else {
-                commentContent.style.display = "none";
-                event.target.innerText = "もっと見る";
-            }
-        }
-    </script>
-    
+
     @vite('resources/js/deleteConfirmation.js')
     @vite('resources/js/like1.js')
     @vite('resources/js/like2.js')
+    @vite('resources/js/commentPagination.js')
 </x-app-layout>
