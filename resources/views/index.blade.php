@@ -43,16 +43,9 @@
         @include('layouts.budget_likes_ranking', ['budgetLikesRanking' => $budgetLikesRanking])
 
         <!-- 日帰り旅のランキング -->
+        <div class="mb-4"></div>
         <h2 class="text-2xl font-semibold mb-2 text-indigo-500">日帰り旅のランキング</h2>
-        <ul class="list-disc pl-6">
-            @foreach($dayTripLikesRanking as $post)
-                <li>
-                    <a href="/posts/{{ $post->id }}" class="hover:underline">
-                        {{ $post->title }} - Likes: {{ $post->likes }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        @include('layouts.day_trip_likes_ranking', ['dayTripLikesRanking' => $dayTripLikesRanking])
     </div>
     
     <x-footer />
