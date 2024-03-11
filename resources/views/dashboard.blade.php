@@ -25,7 +25,7 @@
                             <!-- 投稿の数 -->
                             <p>投稿数: {{ Auth::user()->posts()->count() }}</p>
                             <!-- もらったいいねの数 -->
-                            <p>もらったいいね数: {{ Auth::user()->receivedLikes()->count() }}</p>
+                            <p>もらったいいね数: {{ Auth::user()->receivedLikes()->where('who', Auth::id())->count() }}</p>
                         </div>
                     </div>
 

@@ -53,6 +53,6 @@ class User extends Authenticatable
     // ユーザーが受け取ったいいねを取得する関連メソッド
     public function receivedLikes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class, 'who');
     }
 }
