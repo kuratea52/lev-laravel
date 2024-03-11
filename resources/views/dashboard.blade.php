@@ -48,7 +48,9 @@
                                 @endforeach
                             </ul>
                             @if(Auth::user()->posts->count() > 5)
-                                <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                                <div class="text-right pr-10">
+                                    <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                                </div>
                             @endif
                         </div>
                     
@@ -65,7 +67,9 @@
                                 @endforeach
                             </ul>
                             @if(Auth::user()->likedPosts->count() > 5)
-                                <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                                <div class="text-right pr-10">
+                                    <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                                </div>
                             @endif
                         </div>
                     </div>
