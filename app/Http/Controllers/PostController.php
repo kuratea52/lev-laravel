@@ -40,13 +40,16 @@ class PostController extends Controller
         $keyword = $request->input('keyword');
         session()->put('search_keyword', $keyword);
         
-        $searchResults = Post::where('title', 'like', '%' . $keyword . '%')
-                             ->orWhere('content', 'like', '%' . $keyword . '%')
-                             ->orWhere('region', 'like', '%' . $keyword . '%')
-                             ->orWhere('season', 'like', '%' . $keyword . '%')
-                             ->orWhere('participants', 'like', '%' . $keyword . '%')
-                             ->orWhere('budget', 'like', '%' . $keyword . '%')
-                             ->orWhere('stay_duration', 'like', '%' . $keyword . '%')
+        $searchResults = Post::where('is_public', 1)
+                             ->where(function($query) use ($keyword) {
+                                 $query->where('title', 'like', '%' . $keyword . '%')
+                                       ->orWhere('content', 'like', '%' . $keyword . '%')
+                                       ->orWhere('region', 'like', '%' . $keyword . '%')
+                                       ->orWhere('season', 'like', '%' . $keyword . '%')
+                                       ->orWhere('participants', 'like', '%' . $keyword . '%')
+                                       ->orWhere('budget', 'like', '%' . $keyword . '%')
+                                       ->orWhere('stay_duration', 'like', '%' . $keyword . '%');
+                             })
                              ->paginate(9);
                              
         return view('posts.result', compact('searchResults', 'keyword'));

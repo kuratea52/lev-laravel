@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -28,19 +30,29 @@ class User extends Authenticatable
     ];
 
     // いいねした投稿のリレーションを定義
-    public function likedPosts()
+    public function likedPosts(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class, 'likes', 'user_id', 'post_id')
-                    ->withTimestamps() // 中間テーブルにタイムスタンプを追加
-                    ->withPivot('id') // 中間テーブルの id カラムを取得
-                    ->as('like') // リレーション名を 'like' に変更
-                    ->using(Like::class) // 中間テーブルのモデルを指定
-                    ->withUnique(['user_id', 'post_id']); // ユニーク制約を追加
+        return $this->belongsToMany(Post::class, 'likes')
+                    ->withTimestamps()
+                    ->withPivot('id')
+                    ->as('like');
     }
     
     // コメントとのリレーション
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+    
+    // ユーザーが投稿した投稿を取得する関連メソッド
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    
+    // ユーザーが受け取ったいいねを取得する関連メソッド
+    public function receivedLikes()
+    {
+        return $this->hasMany(Like::class, 'who');
     }
 }

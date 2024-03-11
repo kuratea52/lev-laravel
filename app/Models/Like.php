@@ -23,7 +23,7 @@ class Like extends Model
     {
         return $this->belongsTo(Post::class);
     }
-
+    
     // ユーザーと投稿の組み合わせを一意にする
     protected function setKeysForSaveQuery($query)
     {

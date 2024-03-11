@@ -12,7 +12,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard/myposts', [DashboardController::class, 'posts'])->name('dashboard.myposts');
+Route::get('/dashboard/myposts', [DashboardController::class, 'myposts'])->name('dashboard.myposts');
+
+Route::get('/dashboard/likeposts', [DashboardController::class, 'likeposts'])->name('dashboard.likeposts');
 
 Route::get('/', [PostController::class, 'index'])->name('index');
     

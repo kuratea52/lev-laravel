@@ -2,9 +2,11 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            旅日記「{{ $post->title }}」の詳細
-        </h2>
+        <div class="flex justify-between items-center mt-16">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                旅日記「{{ $post->title }}」の詳細
+            </h2>
+        </div>
     </x-slot>
     
     <div class="container mx-auto my-8">

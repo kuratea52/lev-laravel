@@ -1,10 +1,10 @@
-@section('title', auth()->user()->name . 'さんの旅日記')
+@section('title', auth()->user()->name . 'さんがいいねした旅日記')
 
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __(auth()->user()->name . 'さんの旅日記一覧') }}
+                {{ __(auth()->user()->name . 'さんがいいねした旅日記一覧') }}
             </h2>
         </div>
     </x-slot>
