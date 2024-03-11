@@ -2,13 +2,14 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 みんなの旅日記
             </h2>
             @auth
                 <p>ログインユーザー名: {{ auth()->user()->name }}</p>
             @endauth
+        </div>
     </x-slot>
 
     <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
