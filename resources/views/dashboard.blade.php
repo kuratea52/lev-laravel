@@ -15,10 +15,6 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- ユーザー情報 -->
                     <div class="flex items-center mb-4">
-                        <div class="mr-4">
-                            <!-- プロフィール画像 -->
-                            <img class="h-12 w-12 rounded-full object-cover" src="{{ Auth::user()->profile_image_url }}" alt="プロフィール画像">
-                        </div>
                         <div>
                             <!-- ユーザー名 -->
                             <h1 class="text-xl font-semibold">{{ Auth::user()->name }}</h1>
@@ -29,11 +25,6 @@
                         </div>
                     </div>
 
-                    <!-- プロフィール画像を変更するリンク -->
-                    <div class="mb-4">
-                        <a href="{{ route('profile.edit') }}" class="text-blue-500 hover:underline">{{ __('プロフィール画像を変更する') }}</a>
-                    </div>
-
                     <!-- 自分の投稿一覧 -->
                     <div class="mb-4 flex flex-wrap">
                         <div class="w-full md:w-1/2">
@@ -42,7 +33,7 @@
                                 @foreach(Auth::user()->posts->take(5) as $post)
                                     <li>
                                         <a href="{{ route('posts.show', $post->id) }}" class="text-blue-500 hover:underline">
-                                            {{ \Illuminate\Support\Str::limit($post->title, 30, $end='...') }}
+                                            {{ \Illuminate\Support\Str::limit($post->title, 50, $end='...') }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -61,7 +52,7 @@
                                 @foreach(Auth::user()->likedPosts->take(5) as $likedPost)
                                     <li>
                                         <a href="{{ route('posts.show', $likedPost->id) }}" class="text-blue-500 hover:underline">
-                                            {{ \Illuminate\Support\Str::limit($likedPost->title, 30, $end='...') }}
+                                            {{ \Illuminate\Support\Str::limit($likedPost->title, 50, $end='...') }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -75,7 +66,7 @@
                     </div>
 
                     <!-- アカウント設定へのリンク -->
-                    <div class="text-right">
+                    <div class="text-center pt-10">
                         <a href="{{ route('profile.edit') }}" class="text-gray-500 hover:underline font-semibold bg-red-100 px-4 py-2 rounded-md">{{ __('アカウント設定') }}</a>
                     </div>
                 </div>
