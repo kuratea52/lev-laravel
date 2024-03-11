@@ -17,7 +17,7 @@
                     <div class="flex items-center mb-4">
                         <div>
                             <!-- ユーザー名 -->
-                            <h1 class="text-xl font-semibold">{{ Auth::user()->name }}</h1>
+                            <h1 class="text-3xl font-semibold">{{ Auth::user()->name }}</h1>
                             <!-- 投稿の数 -->
                             <p>投稿数: {{ Auth::user()->posts()->count() }}</p>
                             <!-- もらったいいねの数 -->
