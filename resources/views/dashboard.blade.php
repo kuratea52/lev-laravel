@@ -35,20 +35,44 @@
                     </div>
 
                     <!-- 自分の投稿一覧 -->
-                    <div class="mb-4">
-                        <h2 class="text-lg font-semibold mb-2">{{ __('投稿一覧') }}</h2>
-                        <ul>
-                            @foreach(Auth::user()->posts as $post)
-                                <li>{{ $post->title }}</li>
-                            @endforeach
-                        </ul>
+                    <div class="mb-4 flex flex-wrap">
+                        <div class="w-full md:w-1/2">
+                            <h2 class="text-lg font-semibold mb-2">{{ auth()->user()->name }}{{ __('さんの投稿一覧') }}</h2>
+                            <ul>
+                                @foreach(Auth::user()->posts->take(5) as $post)
+                                    <li>
+                                        <a href="{{ route('posts.show', $post->id) }}" class="text-blue-500 hover:underline">
+                                            {{ \Illuminate\Support\Str::limit($post->title, 30, $end='...') }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            @if(Auth::user()->posts->count() > 5)
+                                <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                            @endif
+                        </div>
+                    
+                        <!-- いいねした投稿一覧 -->
+                        <div class="w-full md:w-1/2">
+                            <h2 class="text-lg font-semibold mb-2">{{ __('いいねした投稿一覧') }}</h2>
+                            <ul>
+                                @foreach(Auth::user()->likedPosts->take(5) as $likedPost)
+                                    <li>
+                                        <a href="{{ route('posts.show', $likedPost->id) }}" class="text-blue-500 hover:underline">
+                                            {{ \Illuminate\Support\Str::limit($likedPost->title, 30, $end='...') }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            @if(Auth::user()->likedPosts->count() > 5)
+                                <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                            @endif
+                        </div>
                     </div>
 
-                    <!-- いいねした投稿一覧 -->
-
                     <!-- アカウント設定へのリンク -->
-                    <div>
-                        <a href="{{ route('profile.edit') }}" class="text-blue-500 hover:underline">{{ __('アカウント設定') }}</a>
+                    <div class="text-right">
+                        <a href="{{ route('profile.edit') }}" class="text-gray-500 hover:underline font-semibold bg-red-100 px-4 py-2 rounded-md">{{ __('アカウント設定') }}</a>
                     </div>
                 </div>
             </div>
