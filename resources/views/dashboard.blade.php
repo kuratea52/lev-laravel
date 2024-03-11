@@ -59,7 +59,7 @@
                             </ul>
                             @if(Auth::user()->likedPosts->count() > 5)
                                 <div class="text-right pr-10">
-                                    <a href="{{ route('dashboard.myposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
+                                    <a href="{{ route('dashboard.likeposts') }}" class="text-blue-500 hover:underline">{{ __("もっと見る") }}</a>
                                 </div>
                             @endif
                         </div>
