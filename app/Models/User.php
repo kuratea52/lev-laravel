@@ -36,7 +36,7 @@ class User extends Authenticatable
                     ->withPivot('id') // 中間テーブルの id カラムを取得
                     ->as('like') // リレーション名を 'like' に変更
                     ->using(Like::class) // 中間テーブルのモデルを指定
-                    ->distinct(['user_id', 'post_id']); // ユニーク制約を追加
+                    ->distinct(['user_id', 'post_id', 'who']); // ユニーク制約を追加
     }
     
     // コメントとのリレーション
@@ -54,6 +54,6 @@ class User extends Authenticatable
     // ユーザーが受け取ったいいねを取得する関連メソッド
     public function receivedLikes()
     {
-        return $this->hasMany(Like::class, 'post_id');
+        return $this->hasMany(Like::class);
     }
 }

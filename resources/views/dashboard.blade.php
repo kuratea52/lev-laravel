@@ -25,7 +25,7 @@
                             <!-- 投稿の数 -->
                             <p>投稿数: {{ Auth::user()->posts()->count() }}</p>
                             <!-- もらったいいねの数 -->
-                            <p>いいね数: {{ Auth::user()->receivedLikes()->count() }}</p>
+                            <p>もらったいいね数: {{ Auth::user()->receivedLikes()->count() }}</p>
                         </div>
                     </div>
 
@@ -45,14 +45,6 @@
                     </div>
 
                     <!-- いいねした投稿一覧 -->
-                    <div class="mb-4">
-                        <h2 class="text-lg font-semibold mb-2">{{ __('いいねした投稿一覧') }}</h2>
-                        <ul>
-                            @foreach(Auth::user()->likedPosts as $likedPost)
-                                <li>{{ $likedPost->title }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
 
                     <!-- アカウント設定へのリンク -->
                     <div>

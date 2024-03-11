@@ -24,6 +24,7 @@ class LikeController extends Controller
         // 新しいいいねを作成する
         $like = new Like();
         $like->user_id = auth()->user()->id;
+        $like->who = Post::find($postId)->user_id;
         $like->post_id = $postId;
         $like->save();
         
