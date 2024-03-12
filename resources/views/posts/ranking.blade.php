@@ -26,6 +26,9 @@
                                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
                     >
                         <div class="absolute inset-0 bg-black opacity-25 rounded-lg backdrop-filter backdrop-blur-lg"></div>
+                        <div class="absolute z-20 top-0 right-0 bg-blue-500 text-white px-2 py-1 rounded-tr rounded-bl">
+                            {{ $loop->index + 1 }}位
+                        </div>
                         <h3 class="text-xl mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ Str::limit($post->title, 20) }}</h3>
                         <p class="text-gray-900 mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ Str::limit($post->content, 40) }}</p>
                         <div class="flex justify-between font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">
