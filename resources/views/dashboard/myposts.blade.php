@@ -11,7 +11,7 @@
     
     <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
         <div class="container mx-auto my-8">
-            <!-- 検索結果の表示 -->
+            <!-- 投稿一覧の表示 -->
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mx-auto">
                 @foreach($posts as $post)
                     <a href="{{ route('posts.show', $post->id) }}" class="block relative bg-white rounded-lg p-4 hover:shadow-md transition duration-300"
