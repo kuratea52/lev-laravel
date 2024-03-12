@@ -1,30 +1,50 @@
-@section('title', 'このサイトについて')
+@section('title', '総合ランキング')
 
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('みんなの旅日記とは') }}
+                {{ __('いいね数の総合ランキング（１位～２０位）') }}
             </h2>
         </div>
     </x-slot>
     
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900">
-                <h3 class="text-2xl font-semibold mb-4">みんなの旅日記の機能</h3>
-                <ul class="list-disc pl-6 mb-6">
-                    <li>投稿する</li>
-                    <li>検索する</li>
-                    <li>備忘録として使う</li>
-                </ul>
-                <p class="text-lg">当サイトは旅の記録を共有し、他の人が旅行の計画を立てるのに役立つプラットフォームです。</p>
-                <p class="text-lg">地域や季節などの条件を指定して投稿を検索し、興味深い旅の記録を見つけることができます。</p>
-                <p class="text-lg">また、自分の投稿を非公開にすることで、他のユーザーに表示されず、個人的な旅行の備忘録として利用することもできます。</p>
+    <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
+        <!-- トップページへのリンク -->
+        <div class="mb-4">
+            <a href="{{ route('index') }}" class="text-blue-500 hover:underline">トップページへ戻る</a>
+        </div>
+
+        <div class="container mx-auto my-8">
+            <!-- 検索結果の表示 -->
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 mx-auto">
+                @foreach($totalLikesRanking as $post)
+                    <a href="{{ route('posts.show', $post->id) }}" class="block relative bg-white rounded-lg p-4 hover:shadow-md transition duration-300"
+                        style="background-image: url('{{ $post->image_path_1 ? asset($post->image_path_1) : asset('storage/img/no_image.jpeg') }}');
+                               background-size: cover;
+                               background-position: center;
+                               box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+                    >
+                        <div class="absolute inset-0 bg-black opacity-25 rounded-lg backdrop-filter backdrop-blur-lg"></div>
+                        <h3 class="text-xl mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ Str::limit($post->title, 20) }}</h3>
+                        <p class="text-gray-900 mb-4 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">{{ Str::limit($post->content, 40) }}</p>
+                        <div class="flex justify-between font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">
+                            <span class="text-gray-900">{{ $post->created_at->diffForHumans() }}</span>
+                            <span class="text-gray-900">{{ $post->likes }} Likes</span>
+                        </div>
+                        <div class="mt-2 font-semibold bg-white opacity-75 backdrop-filter backdrop-blur-sm p-2 rounded">
+                            <span class="text-gray-900">地域: {{ $post->region }}</span><br>
+                            <span class="text-gray-900">シーズン: {{ $post->season }}</span><br>
+                            <span class="text-gray-900">参加人数: {{ $post->participants }}</span><br>
+                            <span class="text-gray-900">予算: {{ $post->budget }}</span><br>
+                            <span class="text-gray-900">滞在期間: {{ $post->stay_duration }}</span>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
-    
+
     <x-footer />
     
 </x-app-layout>

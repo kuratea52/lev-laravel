@@ -57,7 +57,8 @@ class PostController extends Controller
     
     public function ranking(Post $post)
     {
-        return view('posts.ranking', compact('post'));
+        $totalLikesRanking = Post::getRanking();
+        return view('posts.ranking', compact('post', 'totalLikesRanking'));
     }
     
     public function show(Post $post)
