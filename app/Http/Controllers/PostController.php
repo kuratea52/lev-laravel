@@ -55,6 +55,11 @@ class PostController extends Controller
         return view('posts.result', compact('searchResults', 'keyword'));
     }
     
+    public function ranking(Post $post)
+    {
+        return view('posts.ranking', compact('post'));
+    }
+    
     public function show(Post $post)
     {
         // 検索結果からの遷移かどうかを判定するための変数
