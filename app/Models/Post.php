@@ -59,6 +59,14 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
     
+    public static function getRanking($limit = 20)
+    {
+        return self::where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする
+            ->orderByDesc('likes')
+            ->limit($limit)
+            ->get();
+    }
+
     public static function getTotalLikesRanking($limit = 3)
     {
         return self::where('is_public', true) // 公開可否が「公開」の投稿のみを対象にする

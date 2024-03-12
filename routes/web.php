@@ -24,6 +24,8 @@ Route::get('/newpost', function () {
 
 Route::post('/newpost', [PostController::class, 'store'])->name('posts.store');
 
+Route::get('/posts/ranking', [PostController::class, 'ranking'])->name('posts.ranking');
+
 Route::get('/posts/result', [PostController::class, 'result'])->name('posts.result');
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');

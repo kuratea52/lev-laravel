@@ -29,7 +29,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // いいねした投稿のリレーションを定義
+    // likesテーブルとのリレーション
     public function likedPosts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'likes')
@@ -38,7 +38,7 @@ class User extends Authenticatable
                     ->as('like');
     }
     
-    // コメントとのリレーション
+    // commentsテーブルとのリレーション
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
