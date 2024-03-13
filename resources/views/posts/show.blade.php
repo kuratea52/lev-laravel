@@ -6,6 +6,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 旅日記「{{ $post->title }}」の詳細
             </h2>
+            @auth
+                <p>ログインユーザー名: {{ auth()->user()->name }}</p>
+            @endauth
         </div>
     </x-slot>
     

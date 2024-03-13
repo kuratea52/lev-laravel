@@ -10,6 +10,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 「{{ $keyword }}」の検索結果
             </h2>
+            @auth
+                <p>ログインユーザー名: {{ auth()->user()->name }}</p>
+            @endauth
         </div>
     </x-slot>
     

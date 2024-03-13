@@ -6,6 +6,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('旅日記を修正する') }}
             </h2>
+            @auth
+                <p>ログインユーザー名: {{ auth()->user()->name }}</p>
+            @endauth
         </div>
     </x-slot>
 
