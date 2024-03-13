@@ -55,7 +55,7 @@
             
             <div class="content">
                 <div class="content__post mb-4">
-                    <h3 class="text-xl font-semibold mb-2">本文</h3>
+                    <h3 class="text-xl font-semibold mb-2">感想</h3>
                     <p class="text-gray-700">{{ $post->content }}</p>
                 </div>
             </div>
