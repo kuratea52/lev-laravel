@@ -1,6 +1,10 @@
 @section('title', 'トップ')
 
 <x-app-layout>
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    </head>
+    
     <x-slot name="header">
         <div class="flex justify-between items-center mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -15,8 +19,10 @@
     <div class="container mx-auto my-8 max-w-7xl sm:px-6 lg:px-8">
         <!-- 検索バー -->
         <div class="mb-8 flex justify-end">
-            <input type="text" id="searchInput" class="border-gray-300 border rounded-md p-2" placeholder="Search...">
-            <button onclick="searchPosts()" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">Search</button>
+            <input type="text" id="searchInput" class="border-gray-300 border rounded-md p-2" placeholder="地域・季節・人数">
+            <button onclick="searchPosts()" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
         
         <!-- 総合ランキング -->

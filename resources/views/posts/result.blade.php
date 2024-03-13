@@ -4,7 +4,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center mt-16">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                検索結果
+                「{{ $keyword }}」の検索結果
             </h2>
         </div>
     </x-slot>
