@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
+        "heroku/heroku-buildpack-php": "*",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.19",
         "laravel/pint": "^1.0",
