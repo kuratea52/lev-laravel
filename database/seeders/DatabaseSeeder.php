@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Post;
 use Faker\Factory as Faker;
 
+use Faker;
+
 class DatabaseSeeder extends Seeder
 {
     /**
