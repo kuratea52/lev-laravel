@@ -5,8 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
-// use Faker\Factory as Faker;
-use Faker\Generator as Faker;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
