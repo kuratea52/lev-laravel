@@ -1,1 +1,1 @@
-<img src="data:image/png;base64,{{ base64_encode(file_get_contents('storage/img/logo.png')) }}" {{ $attributes }}>
+<img src="{{ asset('storage/img/logo.png') }}"  {{ $attributes }}>
