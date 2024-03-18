@@ -31,9 +31,6 @@ return new class extends Migration
             $table->dropColumn('image_path_1');
             $table->dropColumn('image_path_2');
             $table->dropColumn('image_path_3');
-            $table->string('image_path_1')->nullable();
-            $table->string('image_path_2')->nullable();
-            $table->string('image_path_3')->nullable();
         });
     }
 };
