@@ -24,7 +24,7 @@
                 <div class="image-section grid grid-cols-3 gap-4">
                     @for ($i = 1; $i <= 3; $i++)
                         @if (!empty($post["image_path_$i"]))
-                            <img src="data:image/png;base64,{{ asset($post["image_path_$i"]) }}" alt="Image {{ $i }}">
+                            <img src="{{ asset($post["image_path_$i"]) }}" alt="Image {{ $i }}">
                         @endif
                     @endfor
                 </div>
