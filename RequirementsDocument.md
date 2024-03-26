@@ -17,6 +17,7 @@
 ### 画面遷移図
 
 ### ER図
+![ER図](/blog/storage/app/public/img/ER.png)
 
 ## 開発環境
 
