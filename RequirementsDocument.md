@@ -15,9 +15,10 @@
 ２０２４年３月末から
 
 ### 画面遷移図
+<img src="/storage/app/public/img/view.png" width="400" alt="view">
 
 ### ER図
-<img src="/storage/app/public/img/ER.png" alt="ER図">
+<img src="/storage/app/public/img/ER.png" width="400" alt="ER">
 
 ## 開発環境
 
